@@ -1,7 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s, border 0.2s;
+        }
+
+        .image-grid img.selected {
+            transform: scale(1.05);
+            border: 2px solid #007BFF;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <h1>Elige tus imágenes favoritas</h1>
+    <div class="image-grid" id="imageGrid"></div>
+    <button id="buyButton">Comprar Seleccionadas</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const imageGrid = document.getElementById('imageGrid');
+            const buyButton = document.getElementById('buyButton');
+            let selectedImages = [];
+
+            // URL del archivo JSON en línea
+            const jsonUrl = 'https://tu-dominio.com/path/to/images.json';
+
+            // Cargar imágenes desde la URL remota
+            fetch(jsonUrl)
+                .then(response => response.json())
+                .then(data => {
+                    data.images.forEach((image, index) => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = image.url;
+                        imgElement.alt = `Imagen ${index + 1}`;
+                        imgElement.addEventListener('click', () => toggleSelection(imgElement, image.url));
+                        imageGrid.appendChild(imgElement);
+                    });
+                })
+                .catch(error => console.error('Error al cargar las imágenes:', error));
+
+            function toggleSelection(imgElement, url) {
+                imgElement.classList.toggle('selected');
+                if (selectedImages.includes(url)) {
+                    selectedImages = selectedImages.filter(item => item !== url);
+                } else {
+                    selectedImages.push(url);
+                }
+            }
+
+            buyButton.addEventListener('click', () => {
+                if (selectedImages.length > 0) {
+                    alert(`Has seleccionado ${selectedImages.length} imágenes para comprar.`);
+                    console.log("Imágenes seleccionadas:", selectedImages);
+                } else {
+                    alert('Por favor selecciona al menos una imagen.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
