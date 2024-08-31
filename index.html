@@ -6,46 +6,98 @@
     <title>Galería de Imágenes</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             text-align: center;
-            background-color: #f5f5f5;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #d32f2f;
+            margin: 20px;
+            font-size: 24px;
         }
 
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 10px;
-            padding: 20px;
+            padding: 10px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .image-item {
             position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background-color: #ffffff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
         }
 
-        .image-grid img {
+        .image-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-item img {
             width: 100%;
             height: auto;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: transform 0.2s, border 0.2s;
+            display: block;
+            border-bottom: 4px solid #d32f2f;
+            transition: opacity 0.3s ease;
         }
 
-        .image-grid img.selected {
-            transform: scale(1.05);
-            border: 2px solid #007BFF;
+        .image-item img.selected {
+            border: 4px solid #c2185b;
+            opacity: 0.75;
         }
 
         .description {
-            margin-top: 5px;
-            font-size: 14px;
+            padding: 8px;
+            font-size: 12px;
             color: #333;
+            background-color: #fbe9e7;
+            border-top: 1px solid #d32f2f;
+            border-radius: 0 0 15px 15px;
         }
 
         button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-size: 18px;
             cursor: pointer;
+            margin: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #b71c1c;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            .image-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .description {
+                font-size: 10px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
@@ -65,8 +117,16 @@
 
             // Cargar imágenes y descripciones desde la URL remota
             fetch(jsonUrl)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Red no está disponible.');
+                    }
+                    return response.json();
+                })
                 .then(data => {
+                    if (!data.images || data.images.length === 0) {
+                        throw new Error('No se encontraron imágenes en el JSON.');
+                    }
                     data.images.forEach((image, index) => {
                         const imageItem = document.createElement('div');
                         imageItem.className = 'image-item';
@@ -74,6 +134,9 @@
                         const imgElement = document.createElement('img');
                         imgElement.src = image.url;
                         imgElement.alt = `Imagen ${index + 1}`;
+                        imgElement.onerror = () => {
+                            imgElement.src = 'https://via.placeholder.com/200'; // Imagen de reemplazo en caso de error
+                        };
                         imgElement.addEventListener('click', () => toggleSelection(imgElement, image.url));
 
                         const descriptionElement = document.createElement('div');
