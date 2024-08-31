@@ -18,6 +18,10 @@
             padding: 20px;
         }
 
+        .image-item {
+            position: relative;
+        }
+
         .image-grid img {
             width: 100%;
             height: auto;
@@ -29,6 +33,12 @@
         .image-grid img.selected {
             transform: scale(1.05);
             border: 2px solid #007BFF;
+        }
+
+        .description {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #333;
         }
 
         button {
@@ -53,16 +63,26 @@
             // URL del archivo JSON en línea
             const jsonUrl = 'https://raw.githubusercontent.com/nicomedinap/decosmos/main/catalogo.json';
 
-            // Cargar imágenes desde la URL remota
+            // Cargar imágenes y descripciones desde la URL remota
             fetch(jsonUrl)
                 .then(response => response.json())
                 .then(data => {
                     data.images.forEach((image, index) => {
+                        const imageItem = document.createElement('div');
+                        imageItem.className = 'image-item';
+
                         const imgElement = document.createElement('img');
                         imgElement.src = image.url;
                         imgElement.alt = `Imagen ${index + 1}`;
                         imgElement.addEventListener('click', () => toggleSelection(imgElement, image.url));
-                        imageGrid.appendChild(imgElement);
+
+                        const descriptionElement = document.createElement('div');
+                        descriptionElement.className = 'description';
+                        descriptionElement.textContent = image.description;
+
+                        imageItem.appendChild(imgElement);
+                        imageItem.appendChild(descriptionElement);
+                        imageGrid.appendChild(imageItem);
                     });
                 })
                 .catch(error => console.error('Error al cargar las imágenes:', error));
