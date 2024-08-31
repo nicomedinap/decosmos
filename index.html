@@ -10,7 +10,7 @@
             text-align: center;
             background-color: #fafafa;
             margin: 0;
-            padding: 0;
+            padding: 10px;
         }
 
         h1 {
@@ -81,6 +81,61 @@
             transform: scale(1.05);
         }
 
+        .cart {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            background-color: #ffffff;
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+            transform: translateX(100%);
+        }
+
+        .cart.visible {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            color: #d32f2f;
+            margin-bottom: 20px;
+        }
+
+        .cart-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: auto;
+            border: 2px solid #d32f2f;
+            border-radius: 10px;
+        }
+
+        .cart-item button {
+            background-color: #c2185b;
+            padding: 5px 10px;
+            font-size: 12px;
+            margin-left: auto;
+        }
+
         @media (max-width: 600px) {
             h1 {
                 font-size: 20px;
@@ -98,18 +153,52 @@
                 font-size: 16px;
                 padding: 10px 20px;
             }
+
+            .cart {
+                width: 100%;
+                height: 100%;
+                transform: translateX(100%);
+                box-shadow: none;
+                padding: 10px;
+            }
+
+            .cart-header {
+                font-size: 16px;
+            }
+
+            .cart-item img {
+                width: 40px;
+            }
+
+            .cart-item button {
+                font-size: 10px;
+                padding: 3px 6px;
+            }
         }
     </style>
 </head>
 <body>
     <h1>Elige tus imágenes favoritas</h1>
     <div class="image-grid" id="imageGrid"></div>
+    <button id="toggleCartButton">Ver Carrito</button>
     <button id="buyButton">Comprar Seleccionadas</button>
+
+    <div class="cart" id="cart">
+        <div class="cart-header">
+            <span>Carrito de Compras</span>
+            <button id="closeCartButton">Cerrar</button>
+        </div>
+        <div class="cart-content" id="cartContent"></div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const imageGrid = document.getElementById('imageGrid');
             const buyButton = document.getElementById('buyButton');
+            const toggleCartButton = document.getElementById('toggleCartButton');
+            const closeCartButton = document.getElementById('closeCartButton');
+            const cart = document.getElementById('cart');
+            const cartContent = document.getElementById('cartContent');
             let selectedImages = [];
 
             // URL del archivo JSON en línea
@@ -157,7 +246,40 @@
                 } else {
                     selectedImages.push(url);
                 }
+                updateCart();
             }
+
+            function updateCart() {
+                cartContent.innerHTML = ''; // Limpiar el contenido del carrito
+                selectedImages.forEach(url => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+
+                    const imgElement = document.createElement('img');
+                    imgElement.src = url;
+                    imgElement.alt = 'Imagen en carrito';
+
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Eliminar';
+                    removeButton.addEventListener('click', () => {
+                        selectedImages = selectedImages.filter(item => item !== url);
+                        updateCart();
+                        document.querySelector(`img[src="${url}"]`).classList.remove('selected');
+                    });
+
+                    cartItem.appendChild(imgElement);
+                    cartItem.appendChild(removeButton);
+                    cartContent.appendChild(cartItem);
+                });
+            }
+
+            toggleCartButton.addEventListener('click', () => {
+                cart.classList.toggle('visible');
+            });
+
+            closeCartButton.addEventListener('click', () => {
+                cart.classList.remove('visible');
+            });
 
             buyButton.addEventListener('click', () => {
                 if (selectedImages.length > 0) {
