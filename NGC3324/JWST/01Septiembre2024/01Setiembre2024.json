@@ -1,32 +1,32 @@
 {
   "title": "Los Pilares de la Creación",
-  "mainImage": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_4.jpg",
-  "description": "Los \"pilares de la creación\" son una parte de la región de formación estelar conocida como M16 o Nebulosa del águila. Los pilares son columnas de polvo donde la gravedad ensambla constantemente nuevas estrellas. Formalmente a este tipo de estructuras se les conoce como \"pilares moleculares fríos\", como también \"trompas de elefante\".",
+  "mainImage": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/3.jpg",
+  "description": "Algunos grupos de estrellas muy brillantes son capaces de calentar el material interestelar a su alrededor, lo que provoca las llamas nebulosas de emisión. La que vemos en la imagen particularmente es una nebulosa llamada IC 2599, asociada al grupo de estrellas llamado NGC 3324, ubicado en los cielos australes, dentro de la contestación la quilla, visible en el verano Chileno. Estás imágenes fueron hechas con el telescopio JWST y de hecho, son de las primeras imágenes que liberaron para uso del público. También, años atrás está nebulosa de emisión ha Sido popularmente conocida como la 'Nebulosa Gabriela Mistral', dado el parecido que tiene el borde de la nebulosa y el perfil de la premio Nobel que nos queda sin funar.",
   "relatedContent": [
     {
       "id": "related1",
-      "iframeSrc": "https://nicomedinap.github.io/decosmos/M16/JWST/30Agosto2024/Descripcion.html"
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/NGC3324/JWST/01Septiembre2024/Descripcion.html"
     },
     {
       "id": "related2",
-      "iframeSrc": "https://nicomedinap.github.io/decosmos/M16/JWST/30Agosto2024/ZoomM16.html",
-      "dataSrc": "https://nicomedinap.github.io/decosmos/M16/JWST/30Agosto2024/ZoomM16.html"
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/NGC3324/JWST/01Septiembre2024/ZoomNGC3324.html",
+      "dataSrc": "https://nicomedinap.github.io/decosmos/NGC3324/JWST/01Septiembre2024/ZoomNGC3324.html"
     },
     {
       "id": "related3",
-      "iframeSrc": "https://nicomedinap.github.io/decosmos/M16/JWST/30Agosto2024/MostrarImagenesM16.html"
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/M16/JWST/01Septiembre2024/MostrarImagenesNGC3324.html"
     },
     {
       "id": "related4",
       "content": {
         "title": "Propiedades Físicas de los Pilares de la Creación",
         "items": [
-          "Dimensiones: Aproximadamente 4 a 5 años luz de altura.",
-          "Composición: Principalmente hidrógeno molecular frío, con polvo cósmico.",
-          "Temperatura: Entre -100 y -250 grados Celsius.",
-          "Ubicación: Dentro de la Nebulosa del Águila (M16), a unos 7,000 años luz de la Tierra.",
-          "Proceso: Formación estelar activa en las columnas, donde la gravedad está formando nuevas estrellas.",
-          "Observación: Observados por primera vez en 1995 por el telescopio espacial Hubble."
+          "Dimensiones: -.",
+          "Composición: -.",
+          "Temperatura: -.",
+          "Ubicación: -",
+          "Proceso: -",
+          "Observación: -"
         ]
       }
     }
