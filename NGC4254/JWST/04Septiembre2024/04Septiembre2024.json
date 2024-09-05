@@ -1,0 +1,36 @@
+{
+  "title": "La Galaxia espiral NGC 4254",
+  "mainImage": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4254/012.jpg",
+  "description": "NGC 4254 La galaxia espiral Messier 99, M99 o también conocida como NGC 4254, ha sido observada hace unos días por el telescopio James Webb. Es un interesante objetivo ya que, a pesar de su forma espiral clásica, uno de sus brazos está más separado del resto, y una de las posibilidades que se barajan es la interacción con un objeto llamado VIRGOHI21, el cual es una hipotética 'galaxia oscura' que no presenta estrellas, sólo hidrógeno neutro y mucha gravedad.",
+  "relatedContent": [
+    {
+      "id": "related1",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/NGC4254/JWST/04Septiembre2024/Descripcion.html"
+    },
+    {
+      "id": "related2",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/NGC4254/JWST/04Septiembre2024/ZoomNGC4254.html",
+      "dataSrc": "https://nicomedinap.github.io/decosmos/NGC4254/JWST/04Septiembre2024/ZoomNGC4254.html"
+
+    },
+    {
+      "id": "related3",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/NGC4254/JWST/04Septiembre2024/MostrarImagenesNGC4254.html"
+    },
+    {
+      "id": "related4",
+      "content": {
+        "title": "Propiedades Físicas de NGC 4254",
+        "items": [
+          "Tipo de objeto astronómico: Galaxia espiral barrada",
+          "Dimensiones: Aproximadamente 100,000 años luz de diámetro.",
+          "Composición: Contiene miles de millones de estrellas, junto con gas, polvo interestelar y materia oscura.",
+          "Temperatura: Varía ampliamente, con regiones que van desde frías nubes de gas y polvo a unos pocos grados Kelvin hasta estrellas calientes con temperaturas de varios miles de grados Kelvin.",
+          "Ubicación: En la constelación de Dorado, a unos 60 millones de años luz de la Tierra.",
+          "Proceso: Exhibe intensa actividad en su núcleo, catalogada como una galaxia Seyfert tipo 1, con un agujero negro supermasivo que impulsa la emisión de radiación energética.",
+          "Observación: -"
+        ]
+      }
+    }
+  ]
+}
