@@ -5,53 +5,7 @@
     <title>Zoom en Aladin</title>
     <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        /* Default styles */
-        #aladin-lite-div {
-            width: 500px;
-            height: 800px;
-            margin: auto;
-        }
-
-        /* Centered title */
-        h1 {
-            text-align: center;
-        }
-
-        /* Survey buttons container */
-        .survey-buttons {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .survey-buttons input {
-            margin: 0 10px;
-        }
-
-        /* Coordinates input and button */
-        .coord-input {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* Styles for smaller screens (phones) */
-        @media only screen and (max-width: 600px) {
-            #aladin-lite-div {
-                width: 100%;
-                height: 700px;
-            }
-
-            .survey-buttons, .coord-input {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .survey-buttons input, .coord-input input, .coord-input select {
-                margin: 5px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/Zoom.css">
 </head>
 <body>
 
@@ -86,7 +40,7 @@
             // Initialize AladinLite with a large FoV
             let aladin = A.aladin('#aladin-lite-div', {
                 survey: "P/DSS2/color",
-                fov: 60,  // Start with a large FoV (60 degrees)
+                fov: 360,  // Start with a large FoV (60 degrees)
                 target: "84.6750000 -69.1000000"  // Initial coordinates to center on
             });
 
