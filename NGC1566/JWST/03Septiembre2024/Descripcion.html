@@ -10,48 +10,44 @@
     <div class="container">
         <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/120.jpg" alt="Imagen Principal">
         <svg id="polygonOverlay" class="polygon-overlay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <!-- Rectángulos se agregarán aquí dinámicamente -->
+            <!-- Polígonos y líneas curvas -->
         </svg>
-        <div class="description" id="description">
-            <!-- Descripción de la categoría activa -->
-        </div>
+        <div class="description" id="description"></div>
         <div class="category-toggle">
-            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Evidencia de formación estelar masiva (rojo).</label>
-            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Posible formación estelar (azul).</label>
-            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Chorros de material atípico (verde).</label>
-            <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Presencia de una estrella caliente (amarillo).</label>
+            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Centro galáctico dénsamente poblado de estrellas (rojo).</label>
+            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Brazos espirales principales (azul).</label>
+            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Región de formación estelar (verde).</label>
         </div>
     </div>
 
     <script>
         const rectangles = {
             category1: [
-                { x: 10, y: 20, width: 10, height: 10 },
-                { x: 65, y: 80, width: 20, height: 30 }
+                { x: 41, y: 47, width: 15, height: 15 },
             ],
             category2: [
-                { x: 25, y: 35, width: 20, height: 20 },
-                { x: 65, y: 40, width: 15, height: 25 },
-                { x: 87, y: 85, width: 10, height: 10 }
+        //        { x: 15, y: 15, width: 20, height: 20 },
+        //        { x: 65, y: 40, width: 20, height: 20 }
             ],
             category3: [
-                { x: 45, y: 60, width: 15, height: 20 }
-            ],
-            category4: [
-                { x: 15, y: -10, width: 35, height: 40 }
+                { x: 75, y: 55, width: 10, height: 15 },
+                { x: 70, y: 75, width: 10, height: 15 },
+                { x: 55, y: 100, width: 10, height: 15 }
+
+
             ]
         };
 
-        function drawRectangles() {
+        const spiralArms = {
+            category2: [
+                "M 20 20 C 30 30, 50 20, 70 30",  // Línea curva para el primer brazo espiral
+                "M 50 50 C 60 60, 80 50, 90 60"   // Línea curva para el segundo brazo espiral
+            ]
+        };
+
+        function drawPolygonsAndCurves() {
             const svg = document.getElementById('polygonOverlay');
-            svg.innerHTML = ''; // Limpiar los rectángulos actuales
-
-            if (window.innerWidth > 520) {
-                svg.style.display = 'none'; // Ocultar los rectángulos si el ancho de la ventana es mayor a 520px
-                return;
-            }
-
-            svg.style.display = 'block'; // Mostrar los rectángulos si el ancho de la ventana es menor o igual a 520px
+            svg.innerHTML = ''; // Limpiar el SVG actual
 
             Object.keys(rectangles).forEach(category => {
                 if (document.getElementById(`toggle${category.charAt(0).toUpperCase() + category.slice(1)}`).checked) {
@@ -66,6 +62,17 @@
                         rectangle.setAttribute('stroke-width', '0.5');
                         svg.appendChild(rectangle);
                     });
+
+                    if (category === 'category2') {
+                        spiralArms[category].forEach(pathData => {
+                            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                            path.setAttribute('d', pathData);
+                            path.setAttribute('fill', 'none');
+                            path.setAttribute('stroke', getColorForCategory(category));
+                            path.setAttribute('stroke-width', '0.5');
+                            svg.appendChild(path);
+                        });
+                    }
                 }
             });
         }
@@ -75,21 +82,18 @@
                 case 'category1': return 'red';
                 case 'category2': return 'blue';
                 case 'category3': return 'green';
-                case 'category4': return 'yellow';
                 default: return 'black';
             }
         }
 
-        window.addEventListener('resize', drawRectangles);
-
         document.querySelectorAll('.category-toggle input').forEach(input => {
             input.addEventListener('change', () => {
-                drawRectangles();
+                drawPolygonsAndCurves();
             });
         });
 
-        // Llamada inicial para dibujar rectángulos y actualizar la descripción
-        drawRectangles();
+        // Llamada inicial para dibujar polígonos y líneas curvas
+        drawPolygonsAndCurves();
     </script>
 
 </body>
