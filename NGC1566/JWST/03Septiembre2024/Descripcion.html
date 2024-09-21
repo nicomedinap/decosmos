@@ -7,74 +7,111 @@
 </head>
 <body>
 
+<body>
+
     <div class="container">
         <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/120.jpg" alt="Imagen Principal">
-        <svg id="polygonOverlay" class="polygon-overlay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <!-- Polígonos y líneas curvas -->
-        </svg>
+        <canvas id="polygonOverlay"></canvas>
         <div class="description" id="description"></div>
         <div class="category-toggle">
             <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Centro galáctico dénsamente poblado de estrellas (rojo).</label>
             <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Brazos espirales principales (azul).</label>
-            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Región de formación estelar (verde).</label>
+            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Región de formación estelar masiva (verde).</label>
+            <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Galaxias de fondo (blanco).</label>
         </div>
     </div>
 
     <script>
         const rectangles = {
             category1: [
-                { x: 41, y: 47, width: 15, height: 15 },
+                { x: 850, y: 1900, width: 500, height: 600 },  // Ejemplo de valores
             ],
-            category2: [
-        //        { x: 15, y: 15, width: 20, height: 20 },
-        //        { x: 65, y: 40, width: 20, height: 20 }
-            ],
+            category2: [],
             category3: [
-                { x: 75, y: 55, width: 10, height: 15 },
-                { x: 70, y: 75, width: 10, height: 15 },
-                { x: 55, y: 100, width: 10, height: 15 }
-
-
+                { x: 1650, y: 2100, width: 200, height: 250},
+                { x: 1200, y: 3040, width: 280, height: 350},
+                { x: 283, y: 1513, width: 200, height: 450 },
             ]
         };
 
         const spiralArms = {
             category2: [
-                "M 20 20 C 30 30, 50 20, 70 30",  // Línea curva para el primer brazo espiral
-                "M 50 50 C 60 60, 80 50, 90 60"   // Línea curva para el segundo brazo espiral
+                "M 1006 893 C 113 1966, 600 3118, 1323 2499",
+                "M 732 2079 C 1890 846, 2145 3076, 992 3530"
             ]
         };
 
+        const circles = {
+            category4: [
+                { x: 789, y: 2390, radius: 110 },
+                { x: 1923, y: 2221, radius: 80},
+            ]
+        };
+
+        const img = document.getElementById('mainImage');
+        const canvas = document.getElementById('polygonOverlay');
+        const ctx = canvas.getContext('2d');
+
+        img.onload = function() {
+            resizeCanvas();
+            drawPolygonsAndCurves();
+        };
+
+        function resizeCanvas() {
+            canvas.width = img.clientWidth;
+            canvas.height = img.clientHeight;
+            drawPolygonsAndCurves();
+        }
+
         function drawPolygonsAndCurves() {
-            const svg = document.getElementById('polygonOverlay');
-            svg.innerHTML = ''; // Limpiar el SVG actual
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const scaleX = canvas.width / img.naturalWidth;
+            const scaleY = canvas.height / img.naturalHeight;
 
             Object.keys(rectangles).forEach(category => {
                 if (document.getElementById(`toggle${category.charAt(0).toUpperCase() + category.slice(1)}`).checked) {
                     rectangles[category].forEach(rect => {
-                        const rectangle = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-                        rectangle.setAttribute('x', rect.x);
-                        rectangle.setAttribute('y', rect.y);
-                        rectangle.setAttribute('width', rect.width);
-                        rectangle.setAttribute('height', rect.height);
-                        rectangle.setAttribute('fill', 'none');
-                        rectangle.setAttribute('stroke', getColorForCategory(category));
-                        rectangle.setAttribute('stroke-width', '0.5');
-                        svg.appendChild(rectangle);
+                        const scaledRect = {
+                            x: rect.x * scaleX,
+                            y: rect.y * scaleY,
+                            width: rect.width * scaleX,
+                            height: rect.height * scaleY
+                        };
+                        ctx.strokeStyle = getColorForCategory(category);
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(scaledRect.x, scaledRect.y, scaledRect.width, scaledRect.height);
                     });
-
+                    // los brazos se escalan dentro de esta categoria para que no cambien su tamano en funcion del la dimension de la pantalla
                     if (category === 'category2') {
                         spiralArms[category].forEach(pathData => {
-                            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-                            path.setAttribute('d', pathData);
-                            path.setAttribute('fill', 'none');
-                            path.setAttribute('stroke', getColorForCategory(category));
-                            path.setAttribute('stroke-width', '0.5');
-                            svg.appendChild(path);
+                            const scaledPathData = pathData.replace(/(\d+)/g, (match) => {
+                                return (match * scaleX).toFixed(2); // Escalar según el ancho
+                            });
+                            const path = new Path2D(scaledPathData);
+                            ctx.strokeStyle = getColorForCategory(category);
+                            ctx.lineWidth = 2;
+                            ctx.stroke(path);
                         });
                     }
                 }
             });
+
+            // Dibujar los círculos para la nueva categoría
+            if (document.getElementById('toggleCategory4').checked) {
+                circles.category4.forEach(circle => {
+                    const scaledCircle = {
+                        x: circle.x * scaleX,
+                        y: circle.y * scaleY,
+                        radius: circle.radius * scaleX
+                    };
+                    ctx.strokeStyle = 'white';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.arc(scaledCircle.x, scaledCircle.y, scaledCircle.radius, 0, 2 * Math.PI);
+                    ctx.stroke();
+                });
+            }
         }
 
         function getColorForCategory(category) {
@@ -92,8 +129,9 @@
             });
         });
 
-        // Llamada inicial para dibujar polígonos y líneas curvas
-        drawPolygonsAndCurves();
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+        });
     </script>
 
 </body>
