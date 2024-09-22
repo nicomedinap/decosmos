@@ -9,65 +9,106 @@
 
     <div class="container">
         <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/3.jpg" alt="Imagen Principal">
-        <svg id="polygonOverlay" class="polygon-overlay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <!-- Rectángulos se agregarán aquí dinámicamente -->
-        </svg>
-        <div class="description" id="description">
-            <!-- Descripción de la categoría activa -->
-        </div>
+        <canvas id="polygonOverlay"></canvas>
+        <div class="description" id="description"></div>
         <div class="category-toggle">
-            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Evidencia de formación estelar masiva (rojo).</label>
-            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Posible formación estelar (azul).</label>
-            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Chorros de material atípico (verde).</label>
-            <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Presencia de una estrella caliente (amarillo).</label>
+            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Regiones de formación estelar masiva (rojo).</label>
+        <!--<label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Posible formación estelar (azul).</label> -->
+            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Proto-estrellas (estrellas en formacion) (verde).</label>
+            <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Estrellas jóvenes que calientan el gas (blanco).</label>
+
         </div>
     </div>
 
     <script>
         const rectangles = {
             category1: [
-                { x: 10, y: 20, width: 10, height: 10 },
-                { x: 65, y: 80, width: 20, height: 30 }
+                { x: 1616, y: 2300, width: 800, height: 1350 },
+                { x: 1307, y: 5558, width: 1000, height: 1250 },
             ],
-            category2: [
-                { x: 25, y: 35, width: 20, height: 20 },
-                { x: 65, y: 40, width: 15, height: 25 },
-                { x: 87, y: 85, width: 10, height: 10 }
-            ],
+  //          category2: [],
             category3: [
-                { x: 45, y: 60, width: 15, height: 20 }
-            ],
-            category4: [
-                { x: 15, y: -10, width: 35, height: 40 }
+                 { x: 2200, y: 4300, width: 400, height: 350 },
+                 { x: 2002, y: 2530, width: 200, height: 250 }
             ]
         };
 
-        function drawRectangles() {
-            const svg = document.getElementById('polygonOverlay');
-            svg.innerHTML = ''; // Limpiar los rectángulos actuales
+ //       const spiralArms = {
+ //           category2: []
+//        };
 
-            if (window.innerWidth > 520) {
-                svg.style.display = 'none'; // Ocultar los rectángulos si el ancho de la ventana es mayor a 520px
-                return;
-            }
+        const circles = {
+            category4: [
+            { x: 1050, y: 925, radius: 350 },
+            { x: 1330, y: 1725, radius: 350 },
 
-            svg.style.display = 'block'; // Mostrar los rectángulos si el ancho de la ventana es menor o igual a 520px
+            ]
+        };
+
+        const img = document.getElementById('mainImage');
+        const canvas = document.getElementById('polygonOverlay');
+        const ctx = canvas.getContext('2d');
+
+        img.onload = function() {
+            resizeCanvas();
+            drawPolygonsAndCurves();
+        };
+
+        function resizeCanvas() {
+            canvas.width = img.clientWidth;
+            canvas.height = img.clientHeight;
+            drawPolygonsAndCurves();
+        }
+
+        function drawPolygonsAndCurves() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const scaleX = canvas.width / img.naturalWidth;
+            const scaleY = canvas.height / img.naturalHeight;
 
             Object.keys(rectangles).forEach(category => {
                 if (document.getElementById(`toggle${category.charAt(0).toUpperCase() + category.slice(1)}`).checked) {
                     rectangles[category].forEach(rect => {
-                        const rectangle = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-                        rectangle.setAttribute('x', rect.x);
-                        rectangle.setAttribute('y', rect.y);
-                        rectangle.setAttribute('width', rect.width);
-                        rectangle.setAttribute('height', rect.height);
-                        rectangle.setAttribute('fill', 'none');
-                        rectangle.setAttribute('stroke', getColorForCategory(category));
-                        rectangle.setAttribute('stroke-width', '0.5');
-                        svg.appendChild(rectangle);
+                        const scaledRect = {
+                            x: rect.x * scaleX,
+                            y: rect.y * scaleY,
+                            width: rect.width * scaleX,
+                            height: rect.height * scaleY
+                        };
+                        ctx.strokeStyle = getColorForCategory(category);
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(scaledRect.x, scaledRect.y, scaledRect.width, scaledRect.height);
                     });
+                    // los brazos se escalan dentro de esta categoria para que no cambien su tamano en funcion del la dimension de la pantalla
+                    if (category === 'category2') {
+                        spiralArms[category].forEach(pathData => {
+                            const scaledPathData = pathData.replace(/(\d+)/g, (match) => {
+                                return (match * scaleX).toFixed(2); // Escalar según el ancho
+                            });
+                            const path = new Path2D(scaledPathData);
+                            ctx.strokeStyle = getColorForCategory(category);
+                            ctx.lineWidth = 2;
+                            ctx.stroke(path);
+                        });
+                    }
                 }
             });
+
+            // Dibujar los círculos para la nueva categoría
+            if (document.getElementById('toggleCategory4').checked) {
+                circles.category4.forEach(circle => {
+                    const scaledCircle = {
+                        x: circle.x * scaleX,
+                        y: circle.y * scaleY,
+                        radius: circle.radius * scaleX
+                    };
+                    ctx.strokeStyle = 'white';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.arc(scaledCircle.x, scaledCircle.y, scaledCircle.radius, 0, 2 * Math.PI);
+                    ctx.stroke();
+                });
+            }
         }
 
         function getColorForCategory(category) {
@@ -75,21 +116,19 @@
                 case 'category1': return 'red';
                 case 'category2': return 'blue';
                 case 'category3': return 'green';
-                case 'category4': return 'yellow';
                 default: return 'black';
             }
         }
 
-        window.addEventListener('resize', drawRectangles);
-
         document.querySelectorAll('.category-toggle input').forEach(input => {
             input.addEventListener('change', () => {
-                drawRectangles();
+                drawPolygonsAndCurves();
             });
         });
 
-        // Llamada inicial para dibujar rectángulos y actualizar la descripción
-        drawRectangles();
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+        });
     </script>
 
 </body>
