@@ -6,16 +6,15 @@
     <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/Descripcion.css">
 </head>
 <body>
-
     <div class="container">
-        <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/3.jpg" alt="Imagen Principal">
+        <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4254/012.jpg" alt="Imagen Principal">
         <canvas id="polygonOverlay"></canvas>
         <div class="description" id="description"></div>
         <div class="category-toggle">
-            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Regiones de formación estelar masiva (rojo).</label>
-        <!--<label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Posible formación estelar (azul).</label> -->
-            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Proto-estrellas (estrellas en formacion) (verde).</label>
-            <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Estrellas jóvenes que calientan el gas (blanco).</label>
+            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Centro galáctico densamente poblado de estrellas.</label>
+            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Brazos espirales donde se forman estrellas (azul).</label>
+        <!--    <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Proto-estrellas (estrellas en formacion) (verde).</label> -->
+            <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Galaxias de fondo (blanco).</label>
 
         </div>
     </div>
@@ -23,25 +22,29 @@
     <script>
         const rectangles = {
             category1: [
-                { x: 1616, y: 2300, width: 800, height: 1350 },
-                { x: 1307, y: 5558, width: 1000, height: 1250 },
+                { x: 1000, y: 1350, width: 350, height: 450 },
             ],
-  //          category2: [],
-            category3: [
-                 { x: 2200, y: 4300, width: 400, height: 350 },
-                 { x: 2002, y: 2530, width: 200, height: 250 }
+            category2: [],
+         /*   category3: [],*/
+        };
+
+        const spiralArms = {
+            category2: [
+            "M 2008 445 C 299 337, 84 2210, 1100 1798",
+            "M 950 1433 C 1816 314, 2129 3194, 98 2562",
+            "M 913 1316 C 2120 300, 2157 2918, 964 3583",
+            "M 1390 1648 C 838 2388, 281 2107, 70 1976",
             ]
         };
 
- //       const spiralArms = {
- //           category2: []
-//        };
-
         const circles = {
             category4: [
-            { x: 1050, y: 925, radius: 350 },
-            { x: 1330, y: 1725, radius: 350 },
-
+            { x: 607, y: 2332, radius: 80 },
+            { x: 394, y: 2430, radius: 80 },
+            { x: 1970, y: 2330, radius: 80 },
+            { x: 940, y: 3853, radius: 80 },
+            { x: 802, y: 183, radius: 80 },
+            { x: 675, y: 1396, radius: 80 },
             ]
         };
 
