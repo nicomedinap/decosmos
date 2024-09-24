@@ -20,7 +20,7 @@
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/021.jpg"}
       ]
     },
-        {
+    {
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/012.jpg",
       "description": "Descripción de la imagen 1",
       "tipo": "Nebulosa planetaria",
@@ -32,6 +32,6 @@
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/201.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/210.jpg"}
       ]
-    },
+    }
   ]
 }
