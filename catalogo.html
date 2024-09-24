@@ -60,13 +60,9 @@
 
         .image-item {
             text-align: center;
-            border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
-            flex-grow: 1;
-            /* Permite que el ancho máximo sea el 100% de su contenedor, y que el tamaño mínimo dependa de la imagen */
             max-width: calc(100% / 4 - 20px); /* Ajusta el tamaño para que quepan hasta 4 por fila */
-            min-width: 50px; /* Tamaño mínimo */
             flex-basis: auto; /* Ajuste flexible */
         }
 
@@ -110,6 +106,7 @@
             border: 2px solid #b71c1c;
             border-radius: 10px;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .versions-bar img:hover {
@@ -262,6 +259,11 @@
                             versionImg.src = version.url;
                             versionImg.alt = 'Versión de imagen';
                             versionsBar.appendChild(versionImg);
+
+                            // Añadir evento para seleccionar versión
+                            versionImg.addEventListener('click', () => {
+                                toggleSelection(versionImg, version.url); // Usar la misma función de selección
+                            });
                         }
                     });
                     versionsBar.classList.add('visible'); // Mostrar la barra de versiones
@@ -282,10 +284,10 @@
 
                     const removeButton = document.createElement('button');
                     removeButton.textContent = 'Eliminar';
-                    removeButton.addEventListener('click', () => {
+                    removeButton.onclick = () => {
                         selectedImages = selectedImages.filter(item => item !== url);
                         updateCart();
-                    });
+                    };
 
                     cartItem.appendChild(imgElement);
                     cartItem.appendChild(removeButton);
@@ -301,11 +303,13 @@
                 cart.classList.remove('visible');
             });
 
-            buyButton.addEventListener('click', () => {
-                if (selectedImages.length > 0) {
-                    alert('Imágenes seleccionadas: ' + selectedImages.join(', '));
-                } else {
-                    alert('No has seleccionado ninguna imagen.');
+            document.addEventListener('click', (event) => {
+                if (!cart.contains(event.target) && !toggleCartButton.contains(event.target)) {
+                    cart.classList.remove('visible');
+                }
+
+                if (!versionsBar.contains(event.target) && !event.target.closest('.image-item img')) {
+                    versionsBar.classList.remove('visible');
                 }
             });
         });
