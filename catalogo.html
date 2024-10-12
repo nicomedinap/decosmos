@@ -5,31 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería de Imágenes</title>
     <style>
+        /* Estilos */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            background-color: #121212; /* Fondo oscuro */
+            color: #e0e0e0; /* Texto claro */
         }
 
-        /* Contenedor para el título y los botones */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #f8f9fa;
+            background-color: #333;
             border-bottom: 2px solid #d32f2f;
         }
 
-        /* Título de la página */
         h1 {
             margin: 0;
             font-size: 24px;
-            color: #333;
+            color: #fff; /* Título blanco */
         }
 
-        /* Botones */
         .header-buttons {
             display: flex;
             gap: 10px;
@@ -49,81 +49,60 @@
             background-color: #b71c1c;
         }
 
-        /* Galería de imágenes usando flexbox */
         .image-grid {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
             gap: 20px;
             padding: 20px;
         }
 
         .image-item {
+            flex: 1 1 200px;
+            max-width: 300px;
             text-align: center;
             border-radius: 8px;
             overflow: hidden;
-            max-width: calc(100% / 4 - 20px); /* Ajusta el tamaño para que quepan hasta 4 por fila */
-            flex-basis: auto; /* Ajuste flexible */
+            background-color: #222; /* Fondo oscuro para las tarjetas */
         }
 
         .image-item img {
             width: 100%;
             height: auto;
+            object-fit: contain; /* Mantiene las proporciones de la imagen dentro de su contenedor */
+            aspect-ratio: 1/1; /* Mantiene la proporción de la imagen (1:1) si es compatible con el navegador */
             display: block;
             border-bottom: 4px solid #d32f2f;
             transition: opacity 0.3s ease;
+            cursor: pointer;
+            background-color: #000; /* Color de fondo para áreas vacías */
+        }
+
+        .image-title {
+            padding: 10px;
+            font-size: 18px;
+            color: #e0e0e0; /* Texto claro */
+            background-color: #1e1e1e; /* Fondo acorde al tema oscuro */
         }
 
         .description {
             padding: 10px;
-            background-color: #f1f1f1;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
-        /* Barra de versiones */
-        .versions-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #ffffff;
-            border-top: 3px solid #d32f2f;
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            transition: transform 0.3s ease;
-            transform: translateY(100%); /* Oculta la barra inicialmente */
-        }
-
-        .versions-bar.visible {
-            transform: translateY(0); /* Muestra la barra */
-        }
-
-        .versions-bar img {
-            width: 100px;
-            height: auto;
-            border: 2px solid #b71c1c;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .versions-bar img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Estilos del carrito */
         .cart {
             position: fixed;
             top: 50px;
             right: 20px;
             width: 300px;
-            background-color: white;
+            background-color: #333;
             border: 2px solid #d32f2f;
             padding: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             display: none;
+            z-index: 1001;
+            color: #e0e0e0;
         }
 
         .cart.visible {
@@ -137,45 +116,116 @@
             margin-bottom: 10px;
         }
 
-        .cart-header span {
-            font-weight: bold;
+        .cart-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .cart-content img {
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item img {
             width: 50px;
             height: auto;
+            border-radius: 5px;
+            border: 1px solid #ddd;
         }
 
-        .cart-content button {
-            padding: 5px;
+        .cart-item-title {
+            flex: 1;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        #modalTitle {
+            color: #ffffff; /* Título blanco */
+            margin-top: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        #addToCartButton {
             background-color: #d32f2f;
             color: white;
             border: none;
             border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 20px auto 0;
+            display: block; /* Centrar el botón */
         }
 
-        .cart-content button:hover {
+        #addToCartButton:hover {
             background-color: #b71c1c;
         }
 
-        @media (max-width: 768px) {
-            /* Cambios en pantallas pequeñas */
-            .image-item {
-                max-width: calc(100% / 2 - 20px); /* 2 imágenes por fila en pantallas pequeñas */
-            }
+        .alternative-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
         }
 
-        @media (max-width: 480px) {
-            /* Cambios en pantallas más pequeñas */
-            .image-item {
-                max-width: calc(100% / 2 - 20px); /* 1 imagen por fila en pantallas muy pequeñas */
-            }
+        .alternative-images img {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: border 0.3s;
+        }
+
+        .alternative-images img:hover {
+            border: 2px solid #d32f2f;
         }
     </style>
 </head>
 <body>
-    <!-- Encabezado con título y botones -->
     <div class="header">
         <h1>Elige tus imágenes favoritas</h1>
         <div class="header-buttons">
@@ -186,10 +236,6 @@
 
     <div class="image-grid" id="imageGrid"></div>
 
-    <!-- Barra de versiones en la parte inferior -->
-    <div class="versions-bar" id="versionsBar"></div>
-
-    <!-- Carrito de compras -->
     <div class="cart" id="cart">
         <div class="cart-header">
             <span>Carrito de Compras</span>
@@ -198,102 +244,132 @@
         <div class="cart-content" id="cartContent"></div>
     </div>
 
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Imagen grande">
+            <h3 id="modalTitle"></h3>
+            <button class="close-modal" id="closeModalButton">&times;</button>
+            <button id="addToCartButton" class="header-buttons" style="margin-top: 10px;">Agregar al Carrito</button>
+            <div class="alternative-images" id="alternativeImages"></div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const imageGrid = document.getElementById('imageGrid');
-            const versionsBar = document.getElementById('versionsBar');
             const buyButton = document.getElementById('buyButton');
             const toggleCartButton = document.getElementById('toggleCartButton');
             const closeCartButton = document.getElementById('closeCartButton');
             const cart = document.getElementById('cart');
             const cartContent = document.getElementById('cartContent');
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const closeModalButton = document.getElementById('closeModalButton');
+            const addToCartButton = document.getElementById('addToCartButton');
+            const alternativeImagesContainer = document.getElementById('alternativeImages');
+
             let selectedImages = [];
-
             const jsonUrl = 'https://raw.githubusercontent.com/nicomedinap/decosmos/main/catalogo.json';
-
-            fetch(jsonUrl)
-                .then(response => response.json())
-                .then(data => {
-                    data.images.forEach((image, index) => {
-                        const imageItem = document.createElement('div');
-                        imageItem.className = 'image-item';
-
-                        const imgElement = document.createElement('img');
-                        imgElement.src = image.url;
-                        imgElement.alt = `Imagen ${index + 1}`;
-                        imgElement.onerror = () => imgElement.src = 'https://via.placeholder.com/200';
-                        
-                        imgElement.addEventListener('mouseover', () => showVersions(image.versions));
-                        imgElement.addEventListener('touchstart', () => showVersions(image.versions));
-
-                        imgElement.addEventListener('click', () => toggleSelection(imgElement, image.url));
-
-                        const descriptionElement = document.createElement('div');
-                        descriptionElement.className = 'description';
-                        descriptionElement.textContent = image.description;
-
-                        imageItem.appendChild(imgElement);
-                        imageItem.appendChild(descriptionElement);
-                        imageGrid.appendChild(imageItem);
-                    });
-                })
-                .catch(error => console.error('Error al cargar las imágenes:', error));
-
-            function toggleSelection(imgElement, url) {
-                imgElement.classList.toggle('selected');
-                if (selectedImages.includes(url)) {
-                    selectedImages = selectedImages.filter(item => item !== url);
-                } else {
-                    selectedImages.push(url);
-                }
-                updateCart();
-            }
-
-            function showVersions(versions) {
-                versionsBar.innerHTML = '';
-                
-                if (versions && versions.length > 0 && versions.some(version => version.url)) {
-                    versions.forEach(version => {
-                        if (version.url) {
-                            const versionImg = document.createElement('img');
-                            versionImg.src = version.url;
-                            versionImg.alt = 'Versión de imagen';
-                            versionsBar.appendChild(versionImg);
-
-                            // Añadir evento para seleccionar versión
-                            versionImg.addEventListener('click', () => {
-                                toggleSelection(versionImg, version.url); // Usar la misma función de selección
-                            });
-                        }
-                    });
-                    versionsBar.classList.add('visible'); // Mostrar la barra de versiones
-                } else {
-                    versionsBar.classList.remove('visible'); // Ocultar si no hay versiones
-                }
-            }
 
             function updateCart() {
                 cartContent.innerHTML = '';
-                selectedImages.forEach(url => {
+                selectedImages.forEach((item, index) => {
                     const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
 
                     const imgElement = document.createElement('img');
-                    imgElement.src = url;
-                    imgElement.alt = 'Imagen seleccionada';
-                    imgElement.width = 50;
+                    imgElement.src = item.url;
+                    imgElement.alt = item.title;
+
+                    const titleElement = document.createElement('div');
+                    titleElement.textContent = item.title;
+                    titleElement.classList.add('cart-item-title');
 
                     const removeButton = document.createElement('button');
                     removeButton.textContent = 'Eliminar';
-                    removeButton.onclick = () => {
-                        selectedImages = selectedImages.filter(item => item !== url);
+                    removeButton.style.marginLeft = '10px';
+                    removeButton.addEventListener('click', () => {
+                        selectedImages.splice(index, 1);
                         updateCart();
-                    };
+                    });
 
                     cartItem.appendChild(imgElement);
+                    cartItem.appendChild(titleElement);
                     cartItem.appendChild(removeButton);
                     cartContent.appendChild(cartItem);
                 });
             }
+
+            function fetchImageData() {
+                fetch(jsonUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        data.images.forEach(imageData => {
+                            const imageItem = document.createElement('div');
+                            imageItem.classList.add('image-item');
+
+                            const imgElement = document.createElement('img');
+                            imgElement.src = imageData.url;
+                            imgElement.alt = imageData.title;
+                            imgElement.addEventListener('click', () => {
+                                openModal(imageData);
+                            });
+
+                            const titleElement = document.createElement('div');
+                            titleElement.classList.add('image-title');
+                            titleElement.textContent = imageData.title;
+
+                            imageItem.appendChild(imgElement);
+                            imageItem.appendChild(titleElement);
+                            imageGrid.appendChild(imageItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error al cargar el JSON:', error);
+                    });
+            }
+
+            function openModal(imageData) {
+                modalImage.src = imageData.url;
+                modalTitle.textContent = imageData.title;
+                modal.style.display = 'flex';
+                addToCartButton.onclick = () => addToCart(imageData);
+                loadAlternativeImages(imageData);
+            }
+
+            function closeModal() {
+                modal.style.display = 'none';
+            }
+
+            function addToCart(imageData) {
+                selectedImages.push(imageData);
+                updateCart();
+                closeModal();
+            }
+
+            function loadAlternativeImages(image) {
+                alternativeImagesContainer.innerHTML = '';
+
+                // Verificamos si la imagen tiene versiones alternativas
+                if (image.versions && image.versions.length > 0) {
+                    image.versions.forEach(version => {
+                        const altImageElement = document.createElement('img');
+                        altImageElement.src = version.url;
+                        altImageElement.alt = version.title;
+
+                        // Asignar un evento de clic para cambiar la imagen principal a la versión seleccionada
+                        altImageElement.addEventListener('click', () => {
+                            modalImage.src = version.url;
+                            // Usar el título de la versión si está disponible; de lo contrario, mantener el título de la imagen principal.
+                            modalTitle.textContent = version.title || image.title;
+                        });
+
+                        alternativeImagesContainer.appendChild(altImageElement);
+                    });
+                }
+            }
+
 
             toggleCartButton.addEventListener('click', () => {
                 cart.classList.toggle('visible');
@@ -303,15 +379,9 @@
                 cart.classList.remove('visible');
             });
 
-            document.addEventListener('click', (event) => {
-                if (!cart.contains(event.target) && !toggleCartButton.contains(event.target)) {
-                    cart.classList.remove('visible');
-                }
+            closeModalButton.addEventListener('click', closeModal);
 
-                if (!versionsBar.contains(event.target) && !event.target.closest('.image-item img')) {
-                    versionsBar.classList.remove('visible');
-                }
-            });
+            fetchImageData();
         });
     </script>
 </body>
