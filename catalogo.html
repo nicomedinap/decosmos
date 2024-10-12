@@ -58,13 +58,28 @@
         }
 
         .image-item {
-            flex: 1 1 200px;
-            max-width: 300px;
+            flex: 1 1 calc(33% - 20px);
+            max-width: calc(33% - 20px);
             text-align: center;
             border-radius: 8px;
             overflow: hidden;
             background-color: #222; /* Fondo oscuro para las tarjetas */
         }
+
+
+        @media (max-width: 768px) {
+            .image-item {
+                flex: 1 1 calc(50% - 20px); /* Ocupa la mitad del ancho */
+                max-width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-item {
+                flex: 1 1 calc(100% / 3 - 20px); /* Ocupa un tercio del ancho en móviles */
+                max-width: calc(100% / 3 - 20px);
+            }
+}
 
         .image-item img {
             width: 100%;
@@ -343,33 +358,41 @@
             }
 
             function addToCart(imageData) {
-                selectedImages.push(imageData);
+                const currentImageUrl = modalImage.src;
+                const currentImageTitle = modalTitle.textContent;
+
+                // Crear un objeto que represente la imagen actual visible en el modal.
+                const cartItemData = {
+                    url: currentImageUrl,
+                    title: currentImageTitle
+                };
+
+                selectedImages.push(cartItemData);
                 updateCart();
                 closeModal();
             }
 
-            function loadAlternativeImages(image) {
-                alternativeImagesContainer.innerHTML = '';
+        function loadAlternativeImages(image) {
+            alternativeImagesContainer.innerHTML = '';
 
-                // Verificamos si la imagen tiene versiones alternativas
-                if (image.versions && image.versions.length > 0) {
-                    image.versions.forEach(version => {
-                        const altImageElement = document.createElement('img');
-                        altImageElement.src = version.url;
-                        altImageElement.alt = version.title;
+            // Verificamos si la imagen tiene versiones alternativas
+            if (image.versions && image.versions.length > 0) {
+                image.versions.forEach(version => {
+                    const altImageElement = document.createElement('img');
+                    altImageElement.src = version.url;
+                    altImageElement.alt = version.title;
 
-                        // Asignar un evento de clic para cambiar la imagen principal a la versión seleccionada
-                        altImageElement.addEventListener('click', () => {
-                            modalImage.src = version.url;
-                            // Usar el título de la versión si está disponible; de lo contrario, mantener el título de la imagen principal.
-                            modalTitle.textContent = version.title || image.title;
-                        });
-
-                        alternativeImagesContainer.appendChild(altImageElement);
+                    // Asignar un evento de clic para cambiar la imagen principal a la versión seleccionada
+                    altImageElement.addEventListener('click', () => {
+                        modalImage.src = version.url;
+                        // Usar el título de la versión si está disponible; de lo contrario, mantener el título de la imagen principal.
+                        modalTitle.textContent = version.title || image.title;
                     });
-                }
-            }
 
+                    alternativeImagesContainer.appendChild(altImageElement);
+                });
+            }
+        }
 
             toggleCartButton.addEventListener('click', () => {
                 cart.classList.toggle('visible');
