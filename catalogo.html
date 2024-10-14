@@ -53,8 +53,6 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            gap: 0px;
-            padding: 0px;
         }
 
         .image-item {
@@ -74,12 +72,12 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .image-item {
-                flex: 1 1 calc(100% / 3 - 20px); /* Ocupa un tercio del ancho en móviles */
-                max-width: calc(100% / 3 - 20px);
-            }
-        }
+        /*@media (max-width: 480px) {*/
+        /*    .image-item {*/
+        /*        flex: 1 1 calc(100% / 3 - 20px);*/ /* Ocupa un tercio del ancho en móviles */ 
+        /*        max-width: calc(100% / 3 - 20px);*/
+        /*    }*/
+        /*}*/
 
         .image-item img {
             width: 100%;
@@ -91,6 +89,7 @@
             transition: opacity 0.3s ease;
             cursor: pointer;
             background-color: #000; /* Color de fondo para áreas vacías */
+            border-radius: 0; /* Sin esquinas redondeadas */
         }
 
         .image-title {
@@ -128,7 +127,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 0px;
         }
 
         .cart-content {
@@ -238,16 +237,54 @@
         .alternative-images img:hover {
             border: 2px solid #d32f2f;
         }
+
+        .notification {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4caf50; /* Cambia el color de fondo (verde) */
+            color: #fff; /* Color del texto */
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center; /* Centra el texto */
+        }
+
+        .info {
+            background-color: #e0f7fa;
+            color: #00796b;
+            padding: 15px;
+            border: 1px solid #004d40;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: none; /* Inicialmente oculto */
+        }
+        
     </style>
 </head>
 <body>
+
     <div class="header">
         <h1>Catálogo DeCosmos</h1>
         <div class="header-buttons">
-            <button id="toggleCartButton">Ver Carrito</button>
-            <button id="buyButton">Comprar Seleccionadas</button>
+            <button id="toggleCartButton">Ver lista</button>
+            <button id="buyButton">¡Demuestra interés!</button>
         </div>
     </div>
+    <div id="info" class="info" style="display: none;">
+        ¡Gracias por tu interés! Pronto nos pondremos en contacto contigo.
+    </div>
+    
 
     <div class="image-grid" id="imageGrid"></div>
 
@@ -269,6 +306,11 @@
         </div>
     </div>
 
+    <div id="notification" class="notification">
+    </div>
+
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const imageGrid = document.getElementById('imageGrid');
@@ -284,6 +326,9 @@
             const addToCartButton = document.getElementById('addToCartButton');
             const alternativeImagesContainer = document.getElementById('alternativeImages');
 
+            const notification = document.getElementById('notification');
+            const info = document.getElementById('info'); 
+        
             let selectedImages = [];
             const jsonUrl = 'https://raw.githubusercontent.com/nicomedinap/decosmos/main/catalogo.json';
 
@@ -315,6 +360,16 @@
                     cartContent.appendChild(cartItem);
                 });
             }
+
+            buyButton.addEventListener('click', () => {
+                // Toggle visibility of the info div
+                if (info.style.display === 'none') {
+                    info.style.display = 'block'; // Muestra el div
+                } else {
+                    info.style.display = 'none'; // Oculta el div
+                }
+           });
+
 
             function fetchImageData() {
                 fetch(jsonUrl)
@@ -357,6 +412,14 @@
                 modal.style.display = 'none';
             }
 
+            function showNotification(message) {
+                notification.textContent = message; 
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 3000);
+            }
+
             function addToCart(imageData) {
                 const currentImageUrl = modalImage.src;
                 const currentImageTitle = modalTitle.textContent;
@@ -369,30 +432,31 @@
 
                 selectedImages.push(cartItemData);
                 updateCart();
+                showNotification('Imagen agregada al carrito');
                 closeModal();
             }
 
-        function loadAlternativeImages(image) {
-            alternativeImagesContainer.innerHTML = '';
+            function loadAlternativeImages(image) {
+                alternativeImagesContainer.innerHTML = '';
 
-            // Verificamos si la imagen tiene versiones alternativas
-            if (image.versions && image.versions.length > 0) {
-                image.versions.forEach(version => {
-                    const altImageElement = document.createElement('img');
-                    altImageElement.src = version.url;
-                    altImageElement.alt = version.title;
+                // Verificamos si la imagen tiene versiones alternativas
+                if (image.versions && image.versions.length > 0) {
+                    image.versions.forEach(version => {
+                        const altImageElement = document.createElement('img');
+                        altImageElement.src = version.url;
+                        altImageElement.alt = version.title;
 
-                    // Asignar un evento de clic para cambiar la imagen principal a la versión seleccionada
-                    altImageElement.addEventListener('click', () => {
-                        modalImage.src = version.url;
-                        // Usar el título de la versión si está disponible; de lo contrario, mantener el título de la imagen principal.
-                        modalTitle.textContent = version.title || image.title;
+                        // Asignar un evento de clic para cambiar la imagen principal a la versión seleccionada
+                        altImageElement.addEventListener('click', () => {
+                            modalImage.src = version.url;
+                            // Usar el título de la versión si está disponible; de lo contrario, mantener el título de la imagen principal.
+                            modalTitle.textContent = version.title || image.title;
+                        });
+
+                        alternativeImagesContainer.appendChild(altImageElement);
                     });
-
-                    alternativeImagesContainer.appendChild(altImageElement);
-                });
+                }
             }
-        }
 
             toggleCartButton.addEventListener('click', () => {
                 cart.classList.toggle('visible');
