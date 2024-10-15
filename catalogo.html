@@ -56,14 +56,11 @@
         }
 
         .image-item {
-            flex: 1 1 calc(33% - 20px);
-            max-width: calc(33% - 20px);
-            text-align: center;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #222; /* Fondo oscuro para las tarjetas */
+            /* Asegúrate de que cada item tenga un tamaño definido */
+            width: calc(33.33% - 20px); /* Ajusta el tamaño según el número de columnas que quieras */
+            margin: 10px; /* Espaciado entre imágenes */
+            box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el width/height */
         }
-
 
         @media (max-width: 768px) {
             .image-item {
@@ -81,10 +78,9 @@
 
         .image-item img {
             width: 100%;
-            height: auto;
-            object-fit: contain; /* Mantiene las proporciones de la imagen dentro de su contenedor */
-            aspect-ratio: 1/1; /* Mantiene la proporción de la imagen (1:1) si es compatible con el navegador */
-            display: block;
+            height: auto; /* Mantiene la proporción de la imagen */
+            object-fit: contain; /* Ajusta la imagen dentro de su contenedor manteniendo la relación de aspecto */
+            display: block; /* Elimina el espacio adicional debajo de la imagen */
             border-bottom: 4px solid #d32f2f;
             transition: opacity 0.3s ease;
             cursor: pointer;
@@ -97,7 +93,7 @@
             font-size: 18px;
             color: #e0e0e0; /* Texto claro */
             background-color: #1e1e1e; /* Fondo acorde al tema oscuro */
-        }
+}
 
         .description {
             padding: 10px;
@@ -370,11 +366,20 @@
                 }
            });
 
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
 
             function fetchImageData() {
                 fetch(jsonUrl)
                     .then(response => response.json())
                     .then(data => {
+                        // Mezclar las imágenes aleatoriamente
+                        shuffleArray(data.images);
+                        
                         data.images.forEach(imageData => {
                             const imageItem = document.createElement('div');
                             imageItem.classList.add('image-item');
@@ -399,6 +404,9 @@
                         console.error('Error al cargar el JSON:', error);
                     });
             }
+
+            // Llama a fetchImageData() para cargar las imágenes aleatoriamente
+            fetchImageData();
 
             function openModal(imageData) {
                 modalImage.src = imageData.url;
