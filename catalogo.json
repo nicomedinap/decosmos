@@ -3,6 +3,7 @@
     {
       "title": "NGC 3132",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/201.jpg",
+      "telescopio": "JWST",
       "description": "Descripción ",
       "tipo": "Nebulosa planetaria",
       "subtipo": "Subtipo",
@@ -18,6 +19,7 @@
     {
       "title": "Galáxias de las Antenas",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/012.jpg",
+      "telescopio": "JWST",
       "description": "Descripción ",
       "tipo": "Galaxia",
       "subtipo": "interaccion",
@@ -33,6 +35,7 @@
     {
       "title": "LDN1527",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/0.jpg",
+      "telescopio": "JWST",
       "description": "Descripción ",
       "tipo": "Objeto Estelar Joven",
       "subtipo": "YSO",
@@ -49,6 +52,7 @@
       "title": "M16",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_1.jpg",
       "description": "Descripción",
+      "telescopio": "JWST",
       "tipo": "Region de formación estelar",
       "subtipo": "Subtipo",
       "versions": [
@@ -64,6 +68,7 @@
       "title": "NGC 1087",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1087/201.jpg",
       "description": "Descripción",
+      "telescopio": "JWST",
       "tipo": "Galaxia",
       "subtipo": "Irregular",
       "versions": [
@@ -79,6 +84,7 @@
       "title": "NGC 1365",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1365/%20012.jpg",
       "description": "Descripción",
+      "telescopio": "JWST",
       "tipo": "Galaxia",
       "subtipo": "Subtipo",
       "versions": [
@@ -94,6 +100,7 @@
       "title": "NGC 1566",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/201.jpg",
       "description": "Descripción",
+      "telescopio": "JWST",
       "tipo": "Galaxia",
       "subtipo": "Subtipo",
       "versions": [
@@ -109,6 +116,7 @@
       "title": "NGC 2070",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/0.jpg",
       "description": "Descripción",
+      "telescopio": "JWST",
       "tipo": "Region de formación estelar",
       "subtipo": "Magallanes",
       "versions": [
@@ -125,6 +133,7 @@
       "title": "NGC 3324",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/0.jpg",
       "description": "Descripción",
+      "telescopio": "JWST",
       "tipo": "Galaxia",
       "subtipo": "Subtipo",
       "versions": [
@@ -140,6 +149,7 @@
       "title": "NGC 4254",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4254/201.jpg",
       "description": "Descripción",
+      "telescopio": "JWST",
       "tipo": "Galaxia",
       "subtipo": "Subtipo",
       "versions": [
@@ -155,6 +165,7 @@
       "title": "NGC 4321",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4321/201.jpg",
       "description": "Descripción",
+      "telescopio": "JWST",
       "tipo": "Galaxia",
       "subtipo": "Subtipo",
       "versions": [
