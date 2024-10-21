@@ -176,6 +176,15 @@
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4321/201.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4321/210.jpg"}
       ]
+    },
+    {
+      "title": "ARP 142",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/ARP142/ARP142.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Galaxia",
+      "subtipo": "Interaccion",
+      "versions": []
     }
   ]
 }
