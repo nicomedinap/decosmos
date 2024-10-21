@@ -49,7 +49,7 @@
       ]
     },
     {
-      "title": "M16",
+      "title": "M16 - JWST",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_1.jpg",
       "description": "Descripción",
       "telescopio": "JWST",
@@ -185,6 +185,22 @@
       "tipo": "Galaxia",
       "subtipo": "Interaccion",
       "versions": []
+    },
+    {
+      "title": "M16 - Hubble",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/210.jpg",
+      "description": "Descripción",
+      "telescopio": "Hubble",
+      "tipo": "Region de formación estelar",
+      "subtipo": "Subtipo",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/210.jpg"}
+      ]
     }
   ]
 }
