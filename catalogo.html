@@ -316,29 +316,6 @@
             display: none; /* Inicialmente oculto */
         }
 
-        .footer {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Asegura que el footer siempre esté en la parte inferior */
-        .footer p {
-            margin: 0;
-            font-size: 12px;
-
-        }
-
-        .footer a {
-            margin: 0;
-            font-size: 12px;
-
-        }
-
         .search-bar {
             display: flex;
             justify-content: center;
@@ -357,6 +334,58 @@
             background-color: #2a2a2a;
             color: #ffffff;
         }
+
+        .footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer a {
+            margin: 0;
+            font-size: 10px;
+        }
+
+        .footer p {
+            margin: 0 0 1px 0;
+            font-size: 12px;
+        }
+
+        .footer nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 2px;
+            font-size: 12px;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .footer nav a:hover {
+            color: #1e90ff; /* Cambia a un color azul cuando el cursor está sobre el enlace */
+            text-decoration: underline; /* Subraya el enlace */
+        }
+
+        .footer nav a:active {
+            color: #f39c12; /* Cambia el color cuando se hace clic */
+        }
+
+        .footer nav .fa-instagram:hover {
+            color: #e4405f; /* Cambia el color del icono de Instagram al pasar el cursor */
+        }
+
+        .footer nav a.fa {
+            font-size: 20px;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer nav a.fa:hover {
+            transform: scale(1.2); /* Agranda el icono ligeramente al pasar el cursor */
+        }
+        
     </style>     
     
 <!-- Lo siguiente es para importar el archivo de estilo
@@ -369,7 +398,7 @@
     <div class="header">
         <h1>Catálogo DeCosmos</h1>
         <div class="header-buttons">
-            <button id="toggleCartButton">Ver lista</button>
+            <button id="toggleCartButton">Carrito de compras</button>
             <button id="buyButton">¡Demuestra interés!</button>
 
         </div>
@@ -591,16 +620,15 @@
         });
     </script>
 
-        <footer class="footer">
-            <p>DeCosmos 2024. Nicolás Medina Peña.</p>
-            <nav>
-                <a href="https://www.terms-and-conditions-link.com">Sobre el autor</a>
-                <a href="https://www.privacy-policy-link.com">Sobre las imágenes</a>
-                <a href="https://www.privacy-policy-link.com">Sobre los telescopios</a>
-                <a href="https://www.instagram.com/nicomediap/" target="_blank" class="fa fa-instagram"></a>
-                <a href="https://www.youtube.com/channel/UC27Vv11KAnccwb0UVy7aXtQ?view_as=subscriber" target="_blank" class="fa fa-youtube"></a>
-            </nav>
-        </footer>
+    <footer class="footer">
+        <p>DeCosmos 2024. Nicolás Medina Peña.</p>
+        <nav>
+            <a href="https://www.terms-and-conditions-link.com"> <u>Sobre el autor </u></a>
+            <a href="https://www.privacy-policy-link.com"> <u>Sobre las imágenes </u></a>
+            <a href="https://www.privacy-policy-link.com"> <u>Sobre los telescopios </u></a>
+            <a href="https://www.instagram.com/nicomediap/" target="_blank" class="fa fa-instagram"></a>
+        </nav>
+    </footer>
 
 </body>
 </html>
