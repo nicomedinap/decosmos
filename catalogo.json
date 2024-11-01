@@ -192,7 +192,7 @@
       "description": "Descripción",
       "telescopio": "Hubble",
       "tipo": "Region de formación estelar",
-      "subtipo": "Subtipo",
+      "subtipo": "",
       "versions": [
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/012.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/021.jpg"},
@@ -206,9 +206,9 @@
       "title": "NGC 7320",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC7320/012.jpg",
       "description": "Descripción",
-      "telescopio": "Hubble",
+      "telescopio": "JWST",
       "tipo": "Galaxia",
-      "subtipo": "Subtipo",
+      "subtipo": "",
       "versions": [
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC7320/012.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC7320/021.jpg"},
