@@ -22,9 +22,57 @@ h1 {
     color: #fff; /* Título blanco */
 }
 
+/* Estilos de la cabecera */
+.header {
+    background-color: #1e1e1e;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+}
+
 .header-buttons {
     display: flex;
-    gap: 10px;
+    align-items: center;
+}
+
+.header-buttons input[type="text"] {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+.header-buttons button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3a3a3a;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.header-buttons button:hover {
+    background-color: #4a4a4a;
+}
+
+/* Estilos para el checkbox */
+.checkbox-group {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 5px;
 }
 
 .header-buttons button {
@@ -256,4 +304,74 @@ h1 {
     margin-right: auto;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     display: none; /* Inicialmente oculto */
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #1e1e1e;
+    border-top: 2px solid #d32f2f; /* Separador visual */
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+    width: 100%;
+    max-width: 500px; /* Tamaño máximo */
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+.footer {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a {
+    margin: 0;
+    font-size: 10px;
+}
+
+.footer p {
+    margin: 0 0 1px 0;
+    font-size: 12px;
+}
+
+.footer nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 2px;
+    font-size: 12px;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer nav a:hover {
+    color: #1e90ff; /* Cambia a un color azul cuando el cursor está sobre el enlace */
+    text-decoration: underline; /* Subraya el enlace */
+}
+
+.footer nav a:active {
+    color: #f39c12; /* Cambia el color cuando se hace clic */
+}
+
+.footer nav .fa-instagram:hover {
+    color: #e4405f; /* Cambia el color del icono de Instagram al pasar el cursor */
+}
+
+.footer nav a.fa {
+    font-size: 20px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.footer nav a.fa:hover {
+    transform: scale(1.2); /* Agranda el icono ligeramente al pasar el cursor */
 }
