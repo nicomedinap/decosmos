@@ -6,421 +6,53 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #121212; /* Fondo oscuro */
-            color: #e0e0e0; /* Texto claro */
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #333;
-            border-bottom: 2px solid #d32f2f;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #fff; /* Título blanco */
-        }
-
-        /* Estilos de la cabecera */
-        .header {
-            background-color: #1e1e1e;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header h1 {
-            margin: 0;
-        }
-
-        .header-buttons {
-            display: flex;
-            align-items: center;
-        }
-
-        .header-buttons input[type="text"] {
-            padding: 10px;
-            margin-right: 10px;
-            border: 1px solid #555;
-            border-radius: 4px;
-            background-color: #2a2a2a;
-            color: #ffffff;
-        }
-
-        .header-buttons button {
-            padding: 10px 15px;
-            margin-left: 10px;
-            border: none;
-            border-radius: 4px;
-            background-color: #3a3a3a;
-            color: #ffffff;
-            cursor: pointer;
-        }
-
-        .header-buttons button:hover {
-            background-color: #4a4a4a;
-        }
-
-        /* Estilos para el checkbox */
-        .checkbox-group {
-            margin-left: 10px;
-            display: flex;
-            align-items: center;
-    }
-
-        .header-buttons {
-            display: flex;
-            gap: 5px;
-        }
-
-        .header-buttons button {
-            padding: 10px 20px;
-            background-color: #d32f2f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .header-buttons button:hover {
-            background-color: #b71c1c;
-        }
-
-        .image-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .image-item {
-            /* Asegúrate de que cada item tenga un tamaño definido */
-            width: calc(33.33% - 20px); /* Ajusta el tamaño según el número de columnas que quieras */
-            margin: 10px; /* Espaciado entre imágenes */
-            box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el width/height */
-        }
-
-        @media (max-width: 768px) {
-            .image-item {
-                flex: 1 1 calc(50% - 20px); /* Ocupa la mitad del ancho */
-                max-width: calc(50% - 20px);
-            }
-        }
-
-        /*@media (max-width: 480px) {*/
-        /*    .image-item {*/
-        /*        flex: 1 1 calc(100% / 3 - 20px);*/ /* Ocupa un tercio del ancho en móviles */ 
-        /*        max-width: calc(100% / 3 - 20px);*/
-        /*    }*/
-        /*}*/
-
-        .image-item img {
-            width: 100%;
-            height: auto; /* Mantiene la proporción de la imagen */
-            object-fit: contain; /* Ajusta la imagen dentro de su contenedor manteniendo la relación de aspecto */
-            display: block; /* Elimina el espacio adicional debajo de la imagen */
-            border-bottom: 4px solid #d32f2f;
-            transition: opacity 0.3s ease;
-            cursor: pointer;
-            background-color: #000; /* Color de fondo para áreas vacías */
-            border-radius: 0; /* Sin esquinas redondeadas */
-        }
-
-        .image-title {
-            padding: 10px;
-            font-size: 18px;
-            color: #e0e0e0; /* Texto claro */
-            background-color: #1e1e1e; /* Fondo acorde al tema oscuro */
-}
-
-        .description {
-            padding: 10px;
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-        }
-
-        .cart {
-            position: fixed;
-            top: 50px;
-            right: 20px;
-            width: 300px;
-            background-color: #333;
-            border: 2px solid #d32f2f;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            display: none;
-            z-index: 1001;
-            color: #e0e0e0;
-        }
-
-        .cart.visible {
-            display: block;
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0px;
-        }
-
-        .cart-content {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .cart-item img {
-            width: 50px;
-            height: auto;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        .cart-item-title {
-            flex: 1;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            overflow: auto;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .modal-content img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        #modalTitle {
-            color: #ffffff; /* Título blanco */
-            margin-top: 10px;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: white;
-            background-color: transparent;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        #addToCartButton {
-            background-color: #d32f2f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 20px auto 0;
-            display: block; /* Centrar el botón */
-        }
-
-        #addToCartButton:hover {
-            background-color: #b71c1c;
-        }
-
-        .alternative-images {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .alternative-images img {
-            width: 100px;
-            height: auto;
-            cursor: pointer;
-            border: 2px solid transparent;
-            border-radius: 5px;
-            transition: border 0.3s;
-        }
-
-        .alternative-images img:hover {
-            border: 2px solid #d32f2f;
-        }
-
-        .notification {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #4caf50; /* Cambia el color de fondo (verde) */
-            color: #fff; /* Color del texto */
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 18px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            text-align: center; /* Centra el texto */
-        }
-
-        .info {
-            background-color: #e0f7fa;
-            color: #00796b;
-            padding: 15px;
-            border: 1px solid #004d40;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-align: center;
-            width: 80%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            display: none; /* Inicialmente oculto */
-        }
-
-        .search-bar {
-            display: flex;
-            justify-content: center;
-            padding: 10px 20px;
-            background-color: #1e1e1e;
-            border-top: 2px solid #d32f2f; /* Separador visual */
-            margin-bottom: 20px;
-        }
-
-        .search-bar input[type="text"] {
-            width: 100%;
-            max-width: 500px; /* Tamaño máximo */
-            padding: 10px;
-            border: 1px solid #555;
-            border-radius: 4px;
-            background-color: #2a2a2a;
-            color: #ffffff;
-        }
-
-        .footer {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .footer a {
-            margin: 0;
-            font-size: 10px;
-        }
-
-        .footer p {
-            margin: 0 0 1px 0;
-            font-size: 12px;
-        }
-
-        .footer nav a {
-            color: #ccc;
-            text-decoration: none;
-            margin: 0 2px;
-            font-size: 12px;
-            transition: color 0.3s ease, text-decoration 0.3s ease;
-        }
-
-        .footer nav a:hover {
-            color: #1e90ff; /* Cambia a un color azul cuando el cursor está sobre el enlace */
-            text-decoration: underline; /* Subraya el enlace */
-        }
-
-        .footer nav a:active {
-            color: #f39c12; /* Cambia el color cuando se hace clic */
-        }
-
-        .footer nav .fa-instagram:hover {
-            color: #e4405f; /* Cambia el color del icono de Instagram al pasar el cursor */
-        }
-
-        .footer nav a.fa {
-            font-size: 20px;
-            margin: 0 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .footer nav a.fa:hover {
-            transform: scale(1.2); /* Agranda el icono ligeramente al pasar el cursor */
-        }
-        
-    </style>     
     
-<!-- Lo siguiente es para importar el archivo de estilo
-<!-- <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/Catalogo.css"> */ -->
-
-
+<!-- Lo siguiente es para importar el archivo de estilo -->
+<link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/catalogo.css">
 </head>
+
 <body>
 
+    <!-- Header con título y botones principales -->
     <div class="header">
         <h1>Catálogo DeCosmos</h1>
         <div class="header-buttons">
+            <!-- Botón para alternar la vista del carrito -->
             <button id="toggleCartButton">Carrito de compras</button>
+            <!-- Botón para mostrar el modal de interés -->
             <button id="buyButton">¡Demuestra interés!</button>
-
         </div>
     </div>
-
+    
+    <!-- barra de busqueda -->
     <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Buscar por título...">
     </div>
 
-    <div id="info" class="info" style="display: none;">
-        ¡Gracias por tu interés! Pronto nos pondremos en contacto contigo.
+    <!-- Formulario -->
+    <div id="modalInfo" class="modal-info" style="display: none;">
+        <div class="modal-content-info">
+            <h2>¡Gracias por tu interés!</h2>
+            <p>Por favor, elige la forma que prefieres para contactarte:</p>
+            <form id="infoForm">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="social">Usuario de red social:</label>
+                <input type="text" id="social" name="social" placeholder="@usuario">
+                <br>
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="thankYouMessage" style="display: none; color: green;"></p>
+            <button id="closeInfoModalButton" class="close-modal-button">Cerrar</button>
+        </div>
     </div>
     
+    <!--estructura de la galeria de imagenes -->
     <div class="image-grid" id="imageGrid"></div>
-
-    <div class="cart" id="cart">
-        <div class="cart-header">
-            <span>Carrito de Compras</span>
-            <button id="closeCartButton">Cerrar</button>
-        </div>
-        <div class="cart-content" id="cartContent"></div>
-    </div>
 
     <div class="modal" id="modal">
         <div class="modal-content">
@@ -432,15 +64,19 @@
         </div>
     </div>
 
-    <div id="notification" class="notification">
+    <!--Carrito de compras -->
+    <div class="cart" id="cart">
+        <div class="cart-header">
+            <span>Carrito de Compras</span>
+            <button id="closeCartButton">Cerrar</button>
+        </div>
+        <div class="cart-content" id="cartContent"></div>
     </div>
 
-    <script>
-        // Inicializa EmailJS con tu User ID
-        (function(){
-            emailjs.init(""); // Reemplaza con tu User ID xXpT7WedrXk3k3LHn
-        })();
+    <!--Notificaciones -->
+    <div id="notification" class="notification"></div>
 
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             const imageGrid = document.getElementById('imageGrid');
             const searchInput = document.getElementById('searchInput');
@@ -455,14 +91,108 @@
             const closeModalButton = document.getElementById('closeModalButton');
             const addToCartButton = document.getElementById('addToCartButton');
             const alternativeImagesContainer = document.getElementById('alternativeImages');
-
             const notification = document.getElementById('notification');
-            const info = document.getElementById('info'); 
-        
+            const modalInfo = document.getElementById('modalInfo');
+            const closeInfoModalButton = document.getElementById('closeInfoModalButton');
+
             let selectedImages = [];
             let allImages = [];
             const jsonUrl = 'https://raw.githubusercontent.com/nicomedinap/decosmos/main/catalogo.json';
 
+            // Eventos a los que hay que reaccionar
+
+            // Mostrar el modal de interés
+            buyButton.addEventListener('click', () => {
+                modalInfo.style.display = 'flex';
+            });
+
+            // Cerrar el modal
+            closeInfoModalButton.addEventListener('click', () => {
+               modalInfo.style.display = 'none';
+            });
+
+            toggleCartButton.addEventListener('click', () => {
+                cart.classList.toggle('visible');
+            });
+
+            // Cerrar carrito
+            closeCartButton.addEventListener('click', () => {
+                cart.classList.remove('visible');
+            });
+
+            // Cerrar modal de imágenes
+            closeModalButton.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            // Inicialización
+            fetchImageData();
+
+            // Inicializa EmailJS con tu public_key
+            emailjs.init("xXpT7WedrXk3k3LHn");
+
+            // Reaccionar a la busqueda por titulo
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value.toLowerCase();
+                const filteredImages = allImages.filter(image =>
+                    image.title.toLowerCase().includes(query)
+                );
+                displayImages(filteredImages);
+            });
+
+            // Maneja el envío del formulario
+            document.getElementById('infoForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Evita que se recargue la página
+                
+                // Captura los valores ingresados del formulario
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const social = document.getElementById('social').value;
+
+                // Recopila las URLs de las imágenes seleccionadas
+                let imagesUrls = '';
+                selectedImages.forEach(item => {
+                    imagesUrls += `${item.title}": "${item.url}"\n"`;
+                });
+
+                // Configura los parámetros de la plantilla para EmailJS
+                const templateParams = {
+                    to_name: "Cliente", // Puedes personalizar esto si conoces el nombre del destinatario
+                    from_name: name,
+                    from_email: email,
+                    social_user: social || "No proporcionado",
+                    message: `¡Gracias por tu interés, ${name}! Nos pondremos en contacto contigo pronto.`,
+                    images_urls: imagesUrls // Aquí agregamos las URLs de las imágenes seleccionadas
+                };
+
+                // Envía el correo con EmailJS
+                emailjs.send("service_0t7a4j8", "template_19hd7wl", templateParams)
+                    .then(function(response) {
+                        console.log('Correo enviado con éxito!', response.status, response.text);
+
+                        // Genera el mensaje de agradecimiento en la interfaz
+                        const thankYouMessage = document.getElementById('thankYouMessage');
+                        let message = `¡Gracias por contactarnos, ${name}! Nos pondremos en contacto contigo a través del correo ${email}.`;
+                        if (social) {
+                            message += ` También te seguiremos o contactaremos en ${social}.`;
+                        }
+                        thankYouMessage.textContent = message;
+                        thankYouMessage.style.display = 'block';
+                    }, function(error) {
+                        console.error('Error al enviar el correo...', error);
+                        alert("Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.");
+                    });
+            });
+
+            // Funcion para crear el orden de las imagenes
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            // Funcion que actualiza el carrito
             function updateCart() {
                 cartContent.innerHTML = '';
                 selectedImages.forEach((item, index) => {
@@ -492,32 +222,12 @@
                 });
             }
 
-            buyButton.addEventListener('click', () => {
-                // Enviar el correo con EmailJS
-                emailjs.send("service_0t7a4j8", "template_19hd7wl", {
-                    to_name: "Cliente",
-                    message: "¡Gracias por tu interés! Nos pondremos en contacto pronto."
-                }).then(function(response) {
-                    console.log('Correo enviado con éxito!', response.status, response.text);
-                    info.style.display = 'block';  // Muestra el mensaje si se envía correctamente
-                }, function(error) {
-                    console.log('Error al enviar el correo...', error);
-                });
-            });
-
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
-            }
-
+            //Fetch de datos JSON
             function fetchImageData() {
                 fetch(jsonUrl)
                     .then(response => response.json())
                     .then(data => {
                         allImages = data.images;
-                        shuffleArray(allImages);
                         displayImages(allImages);
                     })
                     .catch(error => {
@@ -597,35 +307,15 @@
                     });
                 }
             }
-
-            searchInput.addEventListener('input', () => {
-                const query = searchInput.value.toLowerCase();
-                const filteredImages = allImages.filter(image =>
-                    image.title.toLowerCase().includes(query)
-                );
-                displayImages(filteredImages);
-            });
-
-            toggleCartButton.addEventListener('click', () => {
-                cart.classList.toggle('visible');
-            });
-
-            closeCartButton.addEventListener('click', () => {
-                cart.classList.remove('visible');
-            });
-
-            closeModalButton.addEventListener('click', closeModal);
-
-            fetchImageData();
         });
     </script>
 
     <footer class="footer">
         <p>DeCosmos 2024. Nicolás Medina Peña.</p>
         <nav>
-            <a href="https://www.terms-and-conditions-link.com"> <u>Sobre el autor</u></a>
-            <a href="https://www.privacy-policy-link.com"> <u>Sobre las imágenes</u></a>
-            <a href="https://www.privacy-policy-link.com"> <u>Sobre los telescopios</u></a>
+            <a href="https://www.terms-and-conditions-link.com"target="_blank"> <u>Sobre el autor </u></a>
+            <a href="https://www.privacy-policy-link.com" target="_blank"> <u>Sobre las imágenes </u></a>
+            <a href="https://www.privacy-policy-link.com" target="_blank"> <u>Sobre los telescopios </u></a>
             <a href="https://www.instagram.com/nicomediap/" target="_blank" class="fa fa-instagram"></a>
         </nav>
     </footer>
