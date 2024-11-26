@@ -6,6 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<<<<<<< HEAD
 
     <style>
         .modal-info {
@@ -54,6 +55,8 @@
             background-color: darkred;
         }
     </style>     
+=======
+>>>>>>> 036389e1f9b2683012334bea8db9366f77c36131
     
 <!-- Lo siguiente es para importar el archivo de estilo -->
 <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/catalogo.css">
@@ -200,7 +203,11 @@
                 // Recopila las URLs de las imágenes seleccionadas
                 let imagesUrls = '';
                 selectedImages.forEach(item => {
+<<<<<<< HEAD
                     imagesUrls += `<img src="${item.url}" alt="${item.title}" style="width: 100px; margin-right: 10px;">`;
+=======
+                    imagesUrls += `${item.title}": "${item.url}"\n"`;
+>>>>>>> 036389e1f9b2683012334bea8db9366f77c36131
                 });
 
                 // Configura los parámetros de la plantilla para EmailJS
