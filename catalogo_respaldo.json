@@ -1,0 +1,181 @@
+{
+  "images": [
+    {
+      "title": "NGC 3132",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/201.jpg",
+      "telescopio": "JWST",
+      "description": "Descripción ",
+      "tipo": "Nebulosa planetaria",
+      "subtipo": "Subtipo",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3132/210.jpg"}
+      ]
+    },
+    {
+      "title": "Galáxias de las Antenas",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/012.jpg",
+      "telescopio": "JWST",
+      "description": "Descripción ",
+      "tipo": "Galaxia",
+      "subtipo": "interaccion",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/210.jpg"}
+      ]
+    },
+    {
+      "title": "LDN1527",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/0.jpg",
+      "telescopio": "JWST",
+      "description": "Descripción ",
+      "tipo": "Objeto Estelar Joven",
+      "subtipo": "YSO",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/0.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/1.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/2.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/3.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/4.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/5.jpg"}
+      ]
+    },
+    {
+      "title": "M16",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_1.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Region de formación estelar",
+      "subtipo": "Subtipo",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_1.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_2.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_3.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_4.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_5.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_6.jpg"}
+      ]
+    },
+    {
+      "title": "NGC 1087",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1087/201.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Galaxia",
+      "subtipo": "Irregular",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1087/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1087/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1087/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1087/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1087/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1087/210.jpg"}
+      ]
+    },
+    {
+      "title": "NGC 1365",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1365/%20012.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Galaxia",
+      "subtipo": "Subtipo",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1365/%20012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1365/%20021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1365/%20102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1365/%20120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1365/%20201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1365/%20210.jpg"}
+      ]
+    },
+    {
+      "title": "NGC 1566",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/201.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Galaxia",
+      "subtipo": "Subtipo",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC1566/210.jpg"}
+      ]
+    },
+    {
+      "title": "NGC 2070",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/0.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Region de formación estelar",
+      "subtipo": "Magallanes",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/0.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/1.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/2.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/3.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/4.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/5.jpg"}
+      ]
+    },
+
+    {
+      "title": "NGC 3324",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/0.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Galaxia",
+      "subtipo": "Subtipo",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/0.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/1.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/2.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/3.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/4.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/5.jpg"}
+      ]
+    },
+    {
+      "title": "NGC 4254",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4254/201.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Galaxia",
+      "subtipo": "Subtipo",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4254/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4254/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4254/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4254/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4254/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4254/210.jpg"}
+      ]
+    },
+    {
+      "title": "NGC 4321",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4321/201.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Galaxia",
+      "subtipo": "Subtipo",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4321/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4321/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4321/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4321/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4321/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC4321/210.jpg"}
+      ]
+    }
+  ]
+}
