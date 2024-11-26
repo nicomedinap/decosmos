@@ -53,7 +53,7 @@
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_1.jpg",
       "description": "Descripción",
       "telescopio": "JWST",
-      "tipo": "Region de formación estelar",
+      "tipo": "Region de formacion estelar",
       "subtipo": "Subtipo",
       "versions": [
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_1.jpg"},
@@ -135,7 +135,7 @@
       "description": "Descripción",
       "telescopio": "JWST",
       "tipo": "Galaxia",
-      "subtipo": "Subtipo",
+      "subtipo": "",
       "versions": [
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/0.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/1.jpg"},
@@ -192,7 +192,7 @@
       "description": "Descripción",
       "telescopio": "Hubble",
       "tipo": "Region de formación estelar",
-      "subtipo": "Subtipo",
+      "subtipo": "",
       "versions": [
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/012.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/021.jpg"},
@@ -200,6 +200,149 @@
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/120.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/201.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M16/210.jpg"}
+      ]
+    },
+    {
+      "title": "NGC 7320",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC7320/012.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Galaxia",
+      "subtipo": "",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC7320/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC7320/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC7320/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC7320/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC7320/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC7320/210.jpg"}
+      ]
+    },
+    {
+      "title": "SNH0pe-2b",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/012.jpg",
+      "description": "Descripción",
+      "telescopio": "Hubble",
+      "tipo": "Galaxia",
+      "subtipo": "Lente",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/210.jpg"}
+      ]
+    },
+    {
+      "title": "ARP 142 - Hubble",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP142/012.jpg",
+      "description": "Descripción",
+      "telescopio": "Hubble",
+      "tipo": "Galaxia",
+      "subtipo": "Interaccion",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP142/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP142/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP142/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP142/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP142/210.jpg"}
+      ]
+    },
+    {
+      "title": "Galaxias de las antenas - Hubble",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/012.jpg",
+      "description": "Descripción",
+      "telescopio": "Hubble",
+      "tipo": "Galaxia",
+      "subtipo": "Interaccion",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/210.jpg"}
+      ]
+    },
+    {
+      "title": "M 17",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M17_SFR/012.jpg",
+      "description": "Descripción",
+      "telescopio": "Hubble",
+      "tipo": "Region de formacion estelar",
+      "subtipo": "",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M17_SFR/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M17_SFR/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M17_SFR/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M17_SFR/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M17_SFR/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/M17_SFR/210.jpg"}
+      ]
+    },
+    {
+      "title": "NGC 6357",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC6357/012.jpg",
+      "description": "Descripción",
+      "telescopio": "Hubble",
+      "tipo": "Region de formacion estelar",
+      "subtipo": "",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC6357/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC6357/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC6357/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC6357/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC6357/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC6357/210.jpg"}
+      ]
+    },
+    {
+      "title": "HH901",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/HH901/012.jpg",
+      "description": "Descripción",
+      "telescopio": "Hubble",
+      "tipo": "Region de formacion estelar",
+      "subtipo": "",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/HH901/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/HH901/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/HH901/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/HH901/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/HH901/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/HH901/210.jpg"}
+      ]
+    },
+    {
+      "title": "ARP 273",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP273/012.jpg",
+      "description": "Descripción",
+      "telescopio": "Hubble",
+      "tipo": "Galaxia",
+      "subtipo": "Interaccion",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP273/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP273/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP273/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP273/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP273/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP273/210.jpg"}
+      ]
+    },
+    {
+      "title": "NGC 5189",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC5189/012.jpg",
+      "description": "Descripción",
+      "telescopio": "Hubble",
+      "tipo": "Nebulosa planetaria",
+      "subtipo": "",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC5189/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC5189/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC5189/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC5189/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC5189/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC5189/210.jpg"}
       ]
     }
   ]
