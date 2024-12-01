@@ -344,6 +344,22 @@
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC5189/201.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/NGC5189/210.jpg"}
       ]
+    },
+    {
+      "title": "ARP 107",
+      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC5189/012.jpg",
+      "description": "Descripción",
+      "telescopio": "JWST",
+      "tipo": "Galaxia",
+      "subtipo": "Galaxia en colisión",
+      "versions": [
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/ARP107/012.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/ARP107/021.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/ARP107/102.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/ARP107/120.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/ARP107/201.jpg"},
+        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/ARP107/210.jpg"}
+      ]
     }
   ]
 }
