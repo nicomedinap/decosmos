@@ -226,6 +226,7 @@
                 fetch(jsonUrl)
                     .then(response => response.json())
                     .then(data => {
+                        allImages = data.images;
                         shuffleArray(allImages); // Aleatoriedad de imagenes
                         allImages = data.images;
                         displayImages(allImages);
