@@ -421,3 +421,13 @@ h1 {
 .close-modal-button:hover {
     background-color: darkred;
 }
+
+.cart-summary {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cart-summary div {
+    margin-bottom: 10px;
+}

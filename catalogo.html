@@ -7,11 +7,12 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <!-- Lo siguiente es para importar el archivo de estilo -->
-    <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/catalogo.css">
+<!-- Lo siguiente es para importar el archivo de estilo -->
+<link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/catalogo.css">
 </head>
 
 <body>
+
     <!-- Header con título y botones principales -->
     <div class="header">
         <h1>Catálogo DeCosmos</h1>
@@ -38,7 +39,10 @@
                 <input type="text" id="name" name="name" required>
                 <br>
                 <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="correo@host.com">
+                <br>
+                <label for="phone">Teléfono:</label>
+                <input type="text" id="phone" name="phone" placeholder="Ej: +56 9 1234 5678">
                 <br>
                 <label for="social">Usuario de red social:</label>
                 <input type="text" id="social" name="social" placeholder="@usuario">
@@ -127,7 +131,7 @@
             // Inicialización
             fetchImageData();
 
-            // Inicializa EmailJS con tu public_key
+            // Inicializa EmailJS con tu public_key 
             emailjs.init("xXpT7WedrXk3k3LHn");
 
             // Reaccionar a la busqueda por titulo
@@ -147,6 +151,13 @@
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const social = document.getElementById('social').value;
+                const phone = document.getElementById('phone').value;
+
+                // Validar que al menos uno de los campos de contacto esté completo
+                if (!email && !phone && !social) {
+                    alert("Por favor, proporciona al menos un método de contacto: correo, teléfono o red social.");
+                    return; // Detiene el envío si no se cumple la validación
+                }
 
                 // Recopila las URLs de las imágenes seleccionadas
                 let imagesUrls = '';
@@ -158,10 +169,11 @@
                 const templateParams = {
                     to_name: "Cliente", // Puedes personalizar esto si conoces el nombre del destinatario
                     from_name: name,
-                    from_email: email,
+                    from_email: email || "No proporcionado",
+                    contact_phone: phone || "No proporcionado",
                     social_user: social || "No proporcionado",
                     message: `¡Gracias por tu interés, ${name}! Nos pondremos en contacto contigo pronto.`,
-                    images_urls: imagesUrls // Aquí agregamos las URLs de las imágenes seleccionadas
+                    images_urls: imagesUrls // Agregamos las URLs de las imagenes seleccionadas
                 };
 
                 // Envía el correo con EmailJS
@@ -172,15 +184,22 @@
                         // Genera el mensaje de agradecimiento en la interfaz
                         const thankYouMessage = document.getElementById('thankYouMessage');
                         let message = `¡Gracias por contactarnos, ${name}! Nos pondremos en contacto contigo a través del correo ${email}.`;
-                        if (social) {
-                            message += ` También te seguiremos o contactaremos en ${social}.`;
-                        }
+                     
+                        if (social) message += ` También te seguiremos o contactaremos en ${social}.`;
+                        if (phone) message += ` También te contactaremos al número ${phone}.`;
+                        if (social) message += ` Y te seguiremos o contactaremos en ${social}.`;
+
+                        // Agregamos un emoji :)
+                        message += " 😊";
+
                         thankYouMessage.textContent = message;
                         thankYouMessage.style.display = 'block';
                     }, function(error) {
                         console.error('Error al enviar el correo...', error);
                         alert("Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.");
                     });
+                // Limpia el formulario después del envío
+                document.getElementById('infoForm').reset();
             });
 
             // Funcion para crear el orden de las imagenes
@@ -194,6 +213,11 @@
             // Funcion que actualiza el carrito
             function updateCart() {
                 cartContent.innerHTML = '';
+
+                // Calcular la cantidad de imágenes y el costo total
+               const cantidadDeCuadros = selectedImages.length;
+               const costoTotal = cantidadDeCuadros * 15000; // Suponiendo que cada imagen cuesta 15,000 pesos
+
                 selectedImages.forEach((item, index) => {
                     const cartItem = document.createElement('div');
                     cartItem.classList.add('cart-item');
@@ -219,6 +243,22 @@
                     cartItem.appendChild(removeButton);
                     cartContent.appendChild(cartItem);
                 });
+
+                // Crear y mostrar el detalle de cantidad y costo total
+                const cartSummary = document.createElement('div');
+                cartSummary.classList.add('cart-summary');
+
+                const cantidadElement = document.createElement('div');
+                cantidadElement.textContent = `Cantidad de cuadros: ${cantidadDeCuadros}`;
+                cartSummary.appendChild(cantidadElement);
+
+                const costoElement = document.createElement('div');
+                costoElement.textContent = `El costo total es de: $${costoTotal.toLocaleString()}`;
+                cartSummary.appendChild(costoElement);
+
+                // Agregar el resumen al carrito
+                cartContent.appendChild(cartSummary);
+
             }
 
             //Fetch de datos JSON
@@ -314,9 +354,9 @@
     <footer class="footer">
         <p>DeCosmos 2024. Nicolás Medina Peña.</p>
         <nav>
-            <a href="https://www.terms-and-conditions-link.com"target="_blank"> <u>Sobre el autor </u></a>
-            <a href="https://www.privacy-policy-link.com" target="_blank"> <u>Sobre las imágenes </u></a>
-            <a href="https://www.privacy-policy-link.com" target="_blank"> <u>Sobre los telescopios </u></a>
+            <a href="https://www.terms-and-conditions-link.com"target="_blank"> <u>Sobre el autor</u></a>
+            <a href="https://www.privacy-policy-link.com" target="_blank"> <u>Sobre las imágenes</u></a>
+            <a href="https://www.privacy-policy-link.com" target="_blank"> <u>Sobre los telescopios</u></a>
             <a href="https://www.instagram.com/nicomediap/" target="_blank" class="fa fa-instagram"></a>
         </nav>
     </footer>
