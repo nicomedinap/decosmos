@@ -9,6 +9,7 @@
     
 <!-- Lo siguiente es para importar el archivo de estilo -->
 <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/catalogo.css">
+
 </head>
 
 <body>
@@ -17,16 +18,16 @@
     <div class="header">
         <h1>Catálogo DeCosmos</h1>
         <div class="header-buttons">
+            <!-- Botón para mostrar el modal de interés -->
+            <button id="indicaciones">¿Como comprar?</button>
             <!-- Botón para alternar la vista del carrito -->
             <button id="toggleCartButton">Carrito de compras</button>
-            <!-- Botón para mostrar el modal de interés -->
-            <button id="buyButton">¡Demuestra interés!</button>
         </div>
     </div>
     
     <!-- barra de busqueda -->
     <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Buscar por título...">
+        <input type="text" id="searchInput" placeholder="Buscar por título...Ej. M16">
     </div>
 
     <!-- Formulario -->
@@ -74,6 +75,8 @@
             <button id="closeCartButton">Cerrar</button>
         </div>
         <div class="cart-content" id="cartContent"></div>
+        <!-- Botón dentro del modal del carrito -->
+        <button id="buyButton" class="interest-button" disabled>Finalizar compra</button>
     </div>
 
     <!--Notificaciones -->
@@ -105,8 +108,15 @@
             // Eventos a los que hay que reaccionar
 
             // Mostrar el modal de interés
+            // Evento para el botón "¡Demuestra interés!"
             buyButton.addEventListener('click', () => {
-                modalInfo.style.display = 'flex';
+                if (selectedImages.length > 0) {
+                    // Lógica para abrir el modal de interés
+                    modalInfo.style.display = 'flex';
+
+                    // Cerrar el carrito de compras
+                    cart.style.display = 'none';
+                }
             });
 
             // Cerrar el modal
@@ -115,12 +125,12 @@
             });
 
             toggleCartButton.addEventListener('click', () => {
-                cart.classList.toggle('visible');
+                cart.style.display = cart.style.display === 'none' || cart.style.display === '' ? 'block' : 'none';
             });
 
             // Cerrar carrito
             closeCartButton.addEventListener('click', () => {
-                cart.classList.remove('visible');
+                cart.style.display = 'none';
             });
 
             // Cerrar modal de imágenes
@@ -225,6 +235,7 @@
                     const imgElement = document.createElement('img');
                     imgElement.src = item.url;
                     imgElement.alt = item.title;
+                    // Aqui, luego debo agregar la descripcion de la imagen
 
                     const titleElement = document.createElement('div');
                     titleElement.textContent = item.title;
@@ -258,6 +269,9 @@
 
                 // Agregar el resumen al carrito
                 cartContent.appendChild(cartSummary);
+
+                // Habilitar o deshabilitar el botón de interés
+                buyButton.disabled = selectedImages.length === 0;
 
             }
 
