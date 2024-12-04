@@ -108,7 +108,7 @@ h1 {
     position: fixed;
     inset: 50; /* top: 0; left: 0; right: 0; bottom: 0; */
     width: 100%;
-    left: 1%;
+    left: 1.8%;
     height: auto;
     color: white;
     z-index: 9999;
