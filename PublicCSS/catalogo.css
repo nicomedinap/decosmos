@@ -102,14 +102,13 @@ h1 {
     box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el width/height */
 }
 
-
 /* Estilos para el modal */
 #instructionsModal {
     display: none; /* Ocultar el modal al inicio */
     position: fixed;
     inset: 50; /* top: 0; left: 0; right: 0; bottom: 0; */
     width: 100%;
-    left: 1.5%;
+    left: 1%;
     height: auto;
     color: white;
     z-index: 9999;
@@ -134,7 +133,6 @@ h1 {
     max-height: 80%; /* Limitar altura máxima */
     border-radius: 10px; /* Bordes redondeados */
     text-align: center;
-
 }
 
 /* Cuando se muestra el modal */
@@ -184,15 +182,11 @@ h1 {
     background-color: #e53935;
 }
 
-
-
 @media (max-width: 768px) {
     .image-item {
         flex: 1 1 calc(50% - 20px); /* Ocupa la mitad del ancho */
         max-width: calc(50% - 20px);
     }
-
-    
 }
 
 /*@media (max-width: 480px) {*/
