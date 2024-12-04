@@ -24,6 +24,22 @@
             <button id="toggleCartButton">Carrito de compras</button>
         </div>
     </div>
+
+    <!-- Modal para mostrar las instrucciones de compra -->
+    <div id="instructionsModal">
+        <div class="modal-content">
+            <h2>Pasos para comprar tu imagen</h2>
+            <p>Sigue estos pasos para adquirir una de nuestras imágenes:</p>
+            <ul>
+                <li>1. Navega por nuestro catálogo y selecciona la imagen de tu interés.</li>
+                <li>2. Haz clic en "Agregar al Carrito" para añadir la imagen.</li>
+                <li>3. Ve a tu carrito de compras y revisa las imágenes seleccionadas.</li>
+                <li>4. Completa el formulario de contacto con tu nombre, correo, teléfono o usuario de red social.</li>
+                <li>5. Envía el formulario y espera nuestra confirmación.</li>
+            </ul>
+            <button id="closeInstructionsModalButton">Cerrar</button>
+        </div>
+    </div>
     
     <!-- barra de busqueda -->
     <div class="search-bar">
@@ -101,11 +117,31 @@
             const modalInfo = document.getElementById('modalInfo');
             const closeInfoModalButton = document.getElementById('closeInfoModalButton');
 
+            const instructionsModal = document.getElementById('instructionsModal');
+            const closeInstructionsModalButton = document.getElementById('closeInstructionsModalButton');
+            const indicacionesButton = document.getElementById('indicaciones');
+
             let selectedImages = [];
             let allImages = [];
             const jsonUrl = 'https://raw.githubusercontent.com/nicomedinap/decosmos/main/catalogo.json';
 
             // Eventos a los que hay que reaccionar
+
+            // Asegurarse de que el modal no tenga la clase 'show' al inicio
+            instructionsModal.classList.remove('show');
+            instructionsModal.style.display = 'none'; // Ocultar completamente al inicio
+
+            // Mostrar el modal de instrucciones cuando se haga clic en el botón
+            indicacionesButton.addEventListener('click', () => {
+                instructionsModal.classList.add('show'); // Agregar clase 'show' para mostrar el modal
+                instructionsModal.style.display = 'block'; // Asegurar que el modal sea visible
+            });
+
+            // Cerrar el modal de instrucciones cuando se haga clic en el botón de cerrar
+            closeInstructionsModalButton.addEventListener('click', () => {
+                instructionsModal.classList.remove('show'); // Remover clase 'show' para ocultar el modal
+                instructionsModal.style.display = 'none'; // Asegurar que el modal sea completamente oculto
+            });
 
             // Mostrar el modal de interés
             // Evento para el botón "¡Demuestra interés!"
@@ -136,6 +172,16 @@
             // Cerrar modal de imágenes
             closeModalButton.addEventListener('click', () => {
                 modal.style.display = 'none';
+            });
+
+            // Mostrar el modal de instrucciones
+            indicacionesButton.addEventListener('click', () => {
+                instructionsModal.style.display = 'block'; // Muestra el modal
+            });
+
+            // Cerrar el modal de instrucciones
+            closeInstructionsModalButton.addEventListener('click', () => {
+                instructionsModal.style.display = 'none'; // Oculta el modal
             });
 
             // Inicialización
@@ -368,7 +414,7 @@
     <footer class="footer">
         <p>DeCosmos 2024. Nicolás Medina Peña.</p>
         <nav>
-            <a href="https://www.terms-and-conditions-link.com"target="_blank"> <u>Sobre el autor</u></a>
+            <a href="https://nicomedinap.github.io/about.html" target="_blank"> <u>Sobre el autor</u></a>
             <a href="https://www.privacy-policy-link.com" target="_blank"> <u>Sobre las imágenes</u></a>
             <a href="https://www.privacy-policy-link.com" target="_blank"> <u>Sobre los telescopios</u></a>
             <a href="https://www.instagram.com/nicomediap/" target="_blank" class="fa fa-instagram"></a>
