@@ -1,0 +1,36 @@
+{
+  "title": "La region de formación estelar NGC 3324",
+  "mainImage": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/3.jpg",
+  "description": "Algunos grupos de estrellas muy brillantes son capaces de calentar el material interestelar a su alrededor, lo que provoca las llamas nebulosas de emisión. La que vemos en la imagen particularmente es una nebulosa llamada IC 2599, asociada al grupo de estrellas llamado NGC 332 dentro de la contestación la quilla, visible en el verano Chileno. Estás imágenes fueron hechas con el telescopio JWST y de hecho, son de las primeras imágenes que liberaron para uso del público",
+  "relatedContent": [
+    {
+      "id": "related1",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/NGC3324/JWST/02Diciembre2024/Descripcion.html"
+    },
+    {
+      "id": "related2",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/NGC3324/JWST/02Diciembre2024/ZoomNGC3324.html",
+      "dataSrc": "https://nicomedinap.github.io/decosmos/NGC3324/JWST/02Diciembre2024/ZoomNGC3324.html"
+    },
+    {
+      "id": "related3",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/NGC3324/JWST/02Diciembre2024/MostrarImagenesNGC3324.html"
+    },
+    {
+      "id": "related4",
+      "content": {
+        "title": "Propiedades Físicas de NGC 3324",
+        "items": [
+          "Tipo de objeto astronómico: Región de formación estelar",
+          "Dimensiones: Aproximadamente 35 años luz de diámetro.",
+          "Composición: Predominantemente hidrógeno ionizado, con presencia de polvo cósmico y otros elementos pesados.",
+          "Temperatura: La región tiene temperaturas variables, con áreas de hasta 10,000 K en el gas ionizado.",
+          "Ubicación: En la constelación de Carina, a unos 7,500 años luz de distancia de la Tierra.",
+          "Proceso: Formación estelar activa, con nuevas estrellas naciendo a partir de nubes densas de gas y polvo.",
+          "Observación: Observada principalmente en longitudes de onda del infrarrojo y óptico, famosa por su aspecto en imágenes del Telescopio Espacial Hubble.",
+          "Dato anecdótico: También conocida como la 'Nebulosa Gabriela Mistral', debido a su parecido con el perfil de la poeta chilena en imágenes astronómicas."
+        ]
+      }
+    }
+  ]
+}
