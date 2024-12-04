@@ -1,0 +1,35 @@
+{
+  "title": "La interacción de galaxias ARP 107",
+  "mainImage": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/ARP107/012.jpg",
+  "description": "ARP 107 es un par de galaxias en interacción que incluye una galaxia espiral que parece estar distorsionada debido a la interacción gravitacional de otra galaxia elíptica. La galaxia espiral, con un brazos espiral claro, muestra signos de formación estelar activa. Las observaciones espectrales indican movimientos complejos en el gas, probablemente influenciados por la dinámica de marea. La galaxia principal podría albergar un núcleo activo moderado, aunque su actividad parece ser menos intensa que en otras galaxias activas. Este sistema es un ejemplo típico de cómo las interacciones galácticas pueden modificar la morfología de las galaxias involucradas.",
+  "relatedContent": [
+    {
+      "id": "related1",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/ARP107/JWST/04Diciembre2024/Descripcion.html"
+    },
+    {
+      "id": "related2",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/ARP107/JWST/04Diciembre2024/ZoomARP107.html",
+      "dataSrc": "https://nicomedinap.github.io/decosmos/ARP107/JWST/04Diciembre2024/ZoomARP107.html"
+    },
+    {
+      "id": "related3",
+      "iframeSrc": "https://nicomedinap.github.io/ARP107/JWST/04Diciembre2024/MostrarImagenesARP107.html"
+    },
+    {
+      "id": "related4",
+      "content": {
+        "title": "Propiedades Físicas de ARP 107",
+        "items": [
+          "Tipo de objeto astronómico: Par de galaxias en interacción, compuesto por una galaxia espiral barrada y una galaxia compañera más pequeña.",
+          "Dimensiones: La galaxia principal tiene un diámetro aproximado de 100,000 años luz, mientras que la compañera es significativamente más pequeña.",
+          "Composición: Ambas galaxias contienen miles de millones de estrellas, junto con gas, polvo interestelar y una cantidad significativa de materia oscura. La interacción ha generado puentes de gas y estrellas entre ellas.",
+          "Temperatura: Varía ampliamente, desde las frías nubes moleculares de unos pocos grados Kelvin en las regiones de formación estelar, hasta las estrellas calientes y jóvenes con temperaturas de decenas de miles de grados Kelvin.",
+          "Ubicación: En la constelación de Leo, a una distancia aproximada de 450 millones de años luz de la Tierra.",
+          "Proceso: La interacción gravitacional entre las galaxias está distorsionando sus formas y provocando intensos episodios de formación estelar en los brazos espirales de la galaxia principal y en las regiones de contacto entre ambas.",
+          "Observación: Este sistema se estudia principalmente en longitudes de onda ópticas e infrarrojas para analizar la formación estelar, así como en el espectro de radio y rayos X para comprender las dinámicas del gas y posibles emisiones del núcleo activo."
+        ]
+      }
+    }
+  ]
+}
