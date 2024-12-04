@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxia NGC 4254</title>
+    <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/MainObject.css">
+</head>
+<body>
+    
+    <div class="main-content">
+        <h1 id="title"></h1>
+        <img id="mainImage" src="" alt="Imagen Principal" style="width: 100%; height: auto;">
+        <p id="description"></p>
+
+        <div id="related1" class="related-content">
+            <iframe id="iframe1" src=""></iframe>
+        </div>
+
+        <div id="related2" class="related-content">
+            <iframe id="aladinIframe" src="" data-src=""></iframe>
+        </div>
+
+        <div id="related3" class="related-content">
+            <iframe id="iframe3" src=""></iframe>
+        </div>
+
+        <div id="related4" class="related-content">
+            <h1 id="related4Title"></h1>
+            <ul id="related4List"></ul>
+        </div>
+    </div>
+
+    <div class="tab-container">
+        <div class="tab" onclick="toggleContent('related1', this)">¿Qué veo en mi imagen?</div>
+        <div class="tab" onclick="toggleContent('related2', this)">Lugar en el Universo</div>
+        <div class="tab" onclick="toggleContent('related3', this)">Versiones alternativas</div>
+        <div class="tab" onclick="toggleContent('related4', this)">Información técnica</div>
+    </div>
+
+    <script>
+        // Cargar datos del archivo JSON
+        fetch('https://raw.githubusercontent.com/nicomedinap/decosmos/main/NGC4254/JWST/04Diciembre2024/04Diciembre2024.json')
+            .then(response => response.json())
+            .then(data => {
+                // Actualizar contenido principal
+                document.getElementById('title').textContent = data.title;
+                document.getElementById('mainImage').src = data.mainImage;
+                document.getElementById('description').textContent = data.description;
+
+                // Actualizar iframes y otros contenidos relacionados
+                data.relatedContent.forEach(content => {
+                    const iframe = document.getElementById('iframe' + content.id.replace('related', ''));
+                    if (iframe) {
+                        if (content.iframeSrc) {
+                            iframe.src = content.iframeSrc;
+                        }
+                    }
+                    if (content.dataSrc) {
+                        const aladinIframe = document.getElementById('aladinIframe');
+                        if (aladinIframe) {
+                            aladinIframe.setAttribute('data-src', content.dataSrc);
+                        }
+                    }
+                    if (content.content) {
+                        document.getElementById('related4Title').textContent = content.content.title;
+                        const list = document.getElementById('related4List');
+                        list.innerHTML = '';
+                        content.content.items.forEach(item => {
+                            const li = document.createElement('li');
+                            li.textContent = item;
+                            list.appendChild(li);
+                        });
+                    }
+                });
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+
+
+        function toggleContent(id, tabElement) {
+            var content = document.getElementById(id);
+            var isVisible = content.classList.contains('visible');
+
+            var contents = document.querySelectorAll('.related-content');
+            var tabs = document.querySelectorAll('.tab');
+            contents.forEach(function (otherContent) {
+                otherContent.classList.remove('visible');
+                otherContent.style.display = 'none';
+            });
+            tabs.forEach(function (tab) {
+                tab.classList.remove('active');
+            });
+
+            if (!isVisible) {
+                content.style.display = 'flex';
+                setTimeout(function () {
+                    content.classList.add('visible');
+                }, 10);
+                tabElement.classList.add('active');
+
+                if (id === 'related2') {
+                    var iframe = document.getElementById('aladinIframe');
+                    iframe.src = iframe.getAttribute('data-src');
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
