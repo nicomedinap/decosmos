@@ -1,0 +1,36 @@
+{
+  "title": "La nebulosa de la Tarántula",
+  "mainImage": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/4.jpg",
+  "description": "NGC2070, o también llamada la 'Nebulosa de la Tarántula' es una de las regiones de formación estelar más activas y brillantes en el universo local. Contiene una gran cantidad de estrellas jóvenes y masivas, como además de las diferentes componentes típicas del medio interestelar: cúmulos estelares con cientos a miles de estrellas individuales (imagen 7), gas ionizado por las estrellas masivas, como también polvo. Tal es el brillo de NGC2070 que es visible a simple vista en el cielo austral, localizada en el cuadrante central de la Gran Nube de Magallanes, una galaxia enana cercana a nuestra querida Vía Láctea.",
+    "relatedContent": [
+    {
+      "id": "related1",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/Tarantula/JWST/04Diciembre2024/Descripcion.html"
+    },
+    {
+      "id": "related2",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/Tarantula/JWST/04Diciembre2024/ZoomTarantula.html",
+      "dataSrc": "https://nicomedinap.github.io/decosmos/Tarantula/JWST/04Diciembre2024/ZoomTarantula.html"
+    },
+    {
+      "id": "related3",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/Tarantula/JWST/04Diciembre2024/MostrarImagenesTarantula.html"
+    },
+    {
+      "id": "related4",
+      "content": {
+        "title": "Propiedades Físicas de la Nebulosa de la Tarántula",
+        "items": [
+          "Tipo de objeto astronómico: Región de formación estelar masiva (Nebulosa de emisión)",
+          "Dimensiones: Aproximadamente 1,000 años luz de diámetro.",
+          "Composición: Principalmente hidrógeno ionizado, con presencia significativa de oxígeno, carbono, y otros elementos pesados.",
+          "Temperatura: Las estrellas jóvenes y masivas pueden calentar el gas circundante hasta decenas de miles de grados Kelvin.",
+          "Ubicación: En la Gran Nube de Magallanes, a unos 160,000 años luz de la Tierra.",
+          "Proceso: Formación de estrellas masivas, con vientos estelares y radiación intensa que modifica las estructuras gaseosas.",
+          "Observación: El JWST ha revelado detalles inéditos de la estructura interna, incluyendo protoestrellas, regiones de choque y filamentos de gas con alta resolución en el infrarrojo.",
+          "Dato anecdótico: Su nombre proviene de su apariencia en imágenes ópticas que recuerdan a una araña; el JWST ha proporcionado nuevas perspectivas, mostrando detalles antes invisibles en el corazón de la nebulosa."
+        ]
+  }
+}
+  ]
+}
