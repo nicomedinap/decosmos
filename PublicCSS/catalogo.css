@@ -7,28 +7,19 @@ body {
     color: #e0e0e0; /* Texto claro */
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    border-bottom: 2px solid #d32f2f;
-}
-
 h1 {
     margin: 0;
     font-size: 24px;
     color: #fff; /* Título blanco */
 }
 
-/* Estilos de la cabecera */
 .header {
-    background-color: #1e1e1e;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Mantener la disposición flex */
+    justify-content: space-between; /* Alinear elementos horizontalmente */
+    align-items: center; /* Centrar elementos verticalmente */
+    padding: 20px 20px; /* Tomar el padding más grande para consistencia */
+    background-color: #1e1e1e; /* Usar el color de fondo más reciente */
+    border-bottom: 2px solid #d32f2f; /* Incluir el borde inferior */
 }
 
 .header h1 {
@@ -100,6 +91,11 @@ h1 {
     width: calc(33.33% - 20px); /* Ajusta el tamaño según el número de columnas que quieras */
     margin: 10px; /* Espaciado entre imágenes */
     box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el width/height */
+    transition: transform 0.3s ease;
+}
+
+.image-item:hover {
+    transform: scale(1.02);
 }
 
 /* Estilos para el modal */
@@ -202,7 +198,6 @@ h1 {
     object-fit: contain; /* Ajusta la imagen dentro de su contenedor manteniendo la relación de aspecto */
     display: block; /* Elimina el espacio adicional debajo de la imagen */
     border-bottom: 4px solid #d32f2f;
-    transition: opacity 0.3s ease;
     cursor: pointer;
     background-color: #000; /* Color de fondo para áreas vacías */
     border-radius: 0; /* Sin esquinas redondeadas */
