@@ -5,6 +5,8 @@ body {
     box-sizing: border-box;
     background-color: #121212; /* Fondo oscuro */
     color: #e0e0e0; /* Texto claro */
+    padding-bottom: 55px; /* Para que el footer no tape los nombres finales */
+
 }
 
 h1 {
@@ -54,12 +56,13 @@ h1 {
     background-color: #4a4a4a;
 }
 
-/* Estilos para el checkbox */
+/* Estilos para el checkbox 
 .checkbox-group {
     margin-left: 10px;
     display: flex;
     align-items: center;
 }
+*/
 
 .header-buttons {
     display: flex;
@@ -89,7 +92,7 @@ h1 {
 .image-item {
     /* Asegúrate de que cada item tenga un tamaño definido */
     width: calc(33.33% - 20px); /* Ajusta el tamaño según el número de columnas que quieras */
-    margin: 10px; /* Espaciado entre imágenes */
+    margin: 5px; /* Espaciado entre imágenes */
     box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el width/height */
     transition: transform 0.3s ease;
 }
@@ -208,6 +211,7 @@ h1 {
     font-size: 18px;
     color: #e0e0e0; /* Texto claro */
     background-color: #1e1e1e; /* Fondo acorde al tema oscuro */
+    text-align: center;
 }
 
 .description {
