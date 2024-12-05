@@ -17,38 +17,6 @@
       ]
     },
     {
-      "title": "Galáxias de las Antenas",
-      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/012.jpg",
-      "telescopio": "JWST",
-      "description": "Descripción ",
-      "tipo": "Galaxia",
-      "subtipo": "interaccion",
-      "versions": [
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/012.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/021.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/102.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/120.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/201.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/Antennae/210.jpg"}
-      ]
-    },
-    {
-      "title": "LDN1527",
-      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/0.jpg",
-      "telescopio": "JWST",
-      "description": "Descripción ",
-      "tipo": "Objeto Estelar Joven",
-      "subtipo": "YSO",
-      "versions": [
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/0.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/1.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/2.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/3.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/4.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/LDN1527/5.jpg"}
-      ]
-    },
-    {
       "title": "M16 - JWST",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_1.jpg",
       "description": "Descripción",
@@ -219,22 +187,6 @@
       ]
     },
     {
-      "title": "SNH0pe-2b",
-      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/012.jpg",
-      "description": "Descripción",
-      "telescopio": "Hubble",
-      "tipo": "Galaxia",
-      "subtipo": "Lente",
-      "versions": [
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/012.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/021.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/102.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/120.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/201.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/SNH0pe-2b/210.jpg"}
-      ]
-    },
-    {
       "title": "ARP 142 - Hubble",
       "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP142/012.jpg",
       "description": "Descripción",
@@ -247,22 +199,6 @@
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP142/102.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP142/120.jpg"},
         {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/ARP142/210.jpg"}
-      ]
-    },
-    {
-      "title": "Galaxias de las antenas - Hubble",
-      "url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/012.jpg",
-      "description": "Descripción",
-      "telescopio": "Hubble",
-      "tipo": "Galaxia",
-      "subtipo": "Interaccion",
-      "versions": [
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/012.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/021.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/102.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/120.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/201.jpg"},
-        {"url": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/HST/AntennaeGalaxies/210.jpg"}
       ]
     },
     {
