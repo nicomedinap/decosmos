@@ -7,51 +7,65 @@ body {
     justify-content: center;
     height: 100vh;
     overflow: hidden;
+    
 }
+
 .container {
     position: relative;
     background-color: black;
 }
+
 #mainImage {
     display: block;
     max-width: 100vw;
     max-height: 100vh;
     object-fit: contain;
 }
+
 #polygonOverlay {
     position: absolute;
     top: 0;
     left: 0;
     pointer-events: none;
 }
+
 .description {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.3);
     color: white;
     padding: 10px;
     border-radius: 5px;
     max-width: 250px;
-    text-align: left;
+    text-align: left; 
     z-index: 2;
 }
+
+/* Para cambiar la alineacion de la info, cambiar de right a left y viceversa */
 .category-toggle {
     position: absolute;
     bottom: 10px;
-    left: 10px;
+    left: 10px; /* Alineación a la derecha */
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 10px;
     border-radius: 5px;
     z-index: 2;
+    text-align: left;
 }
+
 .category-toggle label {
-    display: block;
+
+    display: flex; /* Flexbox para alinear el checkbox con el texto */
+    align-items: center; /* Asegura que estén centrados verticalmente */
     margin-bottom: 5px;
-    font-size: 12px;
+    margin-bottom: 5px;
+    font-size: 1.5vw; /* Tamaño del texto proporcional a la anchura de la ventana */
     color: white;
 }
+
 .category-toggle input[type="checkbox"] {
     margin-right: 10px;
+    transform: scale(1.01); /* Opcional: Aumenta el tamaño del checkbox */
 }

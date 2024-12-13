@@ -40,11 +40,11 @@
             // Initialize AladinLite with a large FoV
             let aladin = A.aladin('#aladin-lite-div', {
                 survey: "P/DSS2/color",
-                fov: 360,  // Start with a large FoV (60 degrees)
-                target: "65.0016535 -54.9379512"  // Initial coordinates to center on
+                fov: 360,  // Start with a large FoV
+                target: "84.6750000 -69.1000000"  // Initial coordinates to center on
             });
 
-            let finalFov = 0.1;  // Final FoV after zooming in
+            let finalFov = 0.3;  // Final FoV after zooming in
             let zoomSpeed = 0.98;  // Zoom speed factor (closer to 1 means slower zoom)
             let intervalTime = 50;  // Time in milliseconds between each zoom step
             let zoomInterval;
@@ -66,13 +66,18 @@
                         clearInterval(zoomInterval);
                         // Optionally, center precisely on the target object
                         aladin.gotoObject(targetCoords);
+
+                        // Change to the 2MASS survey
+                        aladin.setImageSurvey("P/2MASS/color");
+                        $('input#2MASS').prop("checked", true); // Update radio button selection
+
                     }
                 }, intervalTime);
             }
 
             // Automatic zoom to M16 after 5 seconds
             setTimeout(function() {
-                let targetCoords = "65.0016535 -54.93795120";  // Coordinates for M16
+                let targetCoords = "84.6750000 -69.1000000";  // Coordinates for M16
                 startZoom(targetCoords);
             }, 5000);
 
