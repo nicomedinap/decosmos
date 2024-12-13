@@ -6,34 +6,17 @@
     <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/Descripcion.css">
 </head>
 
-<style>
-    /* Para cambiar la alineacion de la info, cambiar de right a left y viceversa */
-    .category-toggle {
-        position: absolute;
-        bottom: 10px;
-        right: 10px; /* Alineación a la derecha */
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        padding: 10px;
-        border-radius: 5px;
-        z-index: 2;
-        text-align: right; 
-    }
-</style>
-
 <body>
-
     <div class="container">
         <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/4.jpg" alt="Imagen Principal">
          <canvas id="polygonOverlay"></canvas>
         <div class="description" id="description"></div>
         <div class="category-toggle">
-            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Estrellas masivas que ionizan el medio (rojo)</label>
-            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Estrellas jóvenes (azul)</label>
-            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Estrellas con estructuras de difracción del JWST (verde)</label>
+            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Estrellas masivas que ionizan el medio con su viento estelar (rojo)</label>
+            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Estrellas jóvenes aún dentro de gas y polvo del cual se formaron (azul)</label>
+            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Estrellas con estructuras de difracción del telescopio JWST (verde)</label>
             <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Cúmulo de estrellas NGC 2070 (blanco)</label>
             <label id="labelCategory5" class="category5"><input type="checkbox" id="toggleCategory5" class="category5" checked> Supercúmulo estelar R136 (amarillo)</label>
-
         </div>
     </div>
 
