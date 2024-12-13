@@ -52,7 +52,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     z-index: 2;
-    text-align: left; /* Opcional: Alineación del texto */
+    text-align: left;
 }
 
 .category-toggle label {
