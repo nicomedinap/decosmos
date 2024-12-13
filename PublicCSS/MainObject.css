@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     text-align: center;
     overflow-y: auto;
-    margin-bottom: 60px; /* Asegura espacio para los botones */
+    margin-bottom: 80px; /* Asegura espacio para los botones */
 }
 
 .main-content h1 {
