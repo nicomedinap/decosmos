@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/Descripcion.css">
+</head>
+<body>
+
+    <div class="container">
+        <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_6.jpg" alt="Imagen Principal">
+        <canvas id="polygonOverlay"></canvas>
+        <div class="description" id="description"></div>
+        <div class="category-toggle">
+            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Regiones de formación estelar masiva (rojo)</label>
+            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Posible formación estelar (azul)</label>
+            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Jet de material anómalo (verde)</label>
+        </div>
+    </div>
+
+    <script>
+        const rectangles = {
+            category1: [
+                { x: 64, y: 422, width: 100, height: 130 },
+                { x: 553, y: 963, width: 100, height: 160 },
+            ],
+            category2: [
+                { x: 73, y: 555, width: 100, height: 110 },
+                { x: 244, y: 360, width: 100, height: 150 },
+                { x: 538, y: 624, width: 100, height: 150 },
+                { x: 711, y: 986, width: 100, height: 100 },
+                ],
+            category3: [
+                { x: 385, y: 769, width: 70, height: 110 },
+            ]
+        };
+
+        const spiralArms = {
+            category2: []
+        };
+
+        const circles = {
+            category4: []
+        };
+
+        const img = document.getElementById('mainImage');
+        const canvas = document.getElementById('polygonOverlay');
+        const ctx = canvas.getContext('2d');
+
+        img.onload = function() {
+            resizeCanvas();
+            drawPolygonsAndCurves();
+        };
+
+        function resizeCanvas() {
+            canvas.width = img.clientWidth;
+            canvas.height = img.clientHeight;
+            drawPolygonsAndCurves();
+        }
+
+        function drawPolygonsAndCurves() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const scaleX = canvas.width / img.naturalWidth;
+            const scaleY = canvas.height / img.naturalHeight;
+
+            Object.keys(rectangles).forEach(category => {
+                if (document.getElementById(`toggle${category.charAt(0).toUpperCase() + category.slice(1)}`).checked) {
+                    rectangles[category].forEach(rect => {
+                        const scaledRect = {
+                            x: rect.x * scaleX,
+                            y: rect.y * scaleY,
+                            width: rect.width * scaleX,
+                            height: rect.height * scaleY
+                        };
+                        ctx.strokeStyle = getColorForCategory(category);
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(scaledRect.x, scaledRect.y, scaledRect.width, scaledRect.height);
+                    });
+                    // los brazos se escalan dentro de esta categoria para que no cambien su tamano en funcion del la dimension de la pantalla
+                    if (category === 'category2') {
+                        spiralArms[category].forEach(pathData => {
+                            const scaledPathData = pathData.replace(/(\d+)/g, (match) => {
+                                return (match * scaleX).toFixed(2); // Escalar según el ancho
+                            });
+                            const path = new Path2D(scaledPathData);
+                            ctx.strokeStyle = getColorForCategory(category);
+                            ctx.lineWidth = 2;
+                            ctx.stroke(path);
+                        });
+                    }
+                }
+            });
+
+            // Dibujar los círculos para la nueva categoría
+            if (document.getElementById('toggleCategory4').checked) {
+                circles.category4.forEach(circle => {
+                    const scaledCircle = {
+                        x: circle.x * scaleX,
+                        y: circle.y * scaleY,
+                        radius: circle.radius * scaleX
+                    };
+                    ctx.strokeStyle = 'white';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.arc(scaledCircle.x, scaledCircle.y, scaledCircle.radius, 0, 2 * Math.PI);
+                    ctx.stroke();
+                });
+            }
+        }
+
+        function getColorForCategory(category) {
+            switch (category) {
+                case 'category1': return 'red';
+                case 'category2': return 'blue';
+                case 'category3': return 'green';
+                default: return 'black';
+            }
+        }
+
+        document.querySelectorAll('.category-toggle input').forEach(input => {
+            input.addEventListener('change', () => {
+                drawPolygonsAndCurves();
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+        });
+    </script>
+
+</body>
+</html>

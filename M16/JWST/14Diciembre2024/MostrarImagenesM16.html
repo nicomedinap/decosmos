@@ -1,0 +1,37 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/MostrarAlternativas.css">
+</head>
+
+<body>
+    <div class="Contenido">
+        <div class="imagen-chica">
+            <img src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_1.jpg" onclick="Desplegar(this)">
+            <img src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_2.jpg" onclick="Desplegar(this)">
+            <img src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_3.jpg" onclick="Desplegar(this)">
+            <img src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_4.jpg" onclick="Desplegar(this)">
+            <img src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_5.jpg" onclick="Desplegar(this)">
+            <img src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_6.jpg" onclick="Desplegar(this)" class="active">
+        </div>
+        <div class="imagen-grande">
+            <img id="CajaDeImagenes" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/M16/M16_6.jpg">
+        </div>
+    </div>
+
+    <script>
+        function Desplegar(ImagenChica) {
+            // Remover la clase 'active' de todas las imágenes pequeñas
+            var imagenes = document.querySelectorAll('.imagen-chica img');
+            imagenes.forEach(function(img) {
+                img.classList.remove('active');
+            });
+
+            // Agregar la clase 'active' a la imagen pequeña seleccionada
+            ImagenChica.classList.add('active');
+
+            // Cambiar la imagen grande
+            var ImagenGrande = document.getElementById("CajaDeImagenes");
+            ImagenGrande.src = ImagenChica.src; 
+        }
+    </script>
+</body>
