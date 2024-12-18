@@ -510,3 +510,69 @@ h1 {
 .cart-summary div {
     margin-bottom: 10px;
 }
+
+.interest-button {
+    background-color: #6200ea; /* Color base morado */
+    color: white;
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    overflow: hidden;
+}
+
+/* Efecto al pasar el cursor */
+.interest-button:hover {
+    background-color: #3700b3; /* Morado más oscuro */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Ajuste en la sombra */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
+
+/* Efecto de animación al hacer clic */
+.interest-button:active {
+    background-color: #03dac5; /* Color verde claro */
+    transform: scale(0.95); /* Hace que el botón se haga más pequeño */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación de pulso */
+.interest-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3); /* Fondo blanco con algo de transparencia */
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Asegurarse de que el texto esté por encima de la animación */
+.interest-button span {
+    position: relative;
+    z-index: 1;
+}
