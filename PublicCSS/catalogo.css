@@ -514,10 +514,10 @@ h1 {
 .interest-button {
     background-color: #6200ea; /* Color base morado */
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     padding: 15px 30px;
     border: none;
-    border-radius: 50px;
+    border-radius: 30px;
     cursor: pointer;
     outline: none;
     position: relative;
