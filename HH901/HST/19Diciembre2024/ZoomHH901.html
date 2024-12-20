@@ -49,6 +49,8 @@
             let intervalTime = 50;  // Time in milliseconds between each zoom step
             let zoomInterval;
 
+            let overlay;
+
 
             // Display the HH 901 outreach image using displayJPG
             function callback(ra, dec, fov) {
@@ -56,13 +58,13 @@
                 return true;
             }
 
-            // Function to gradually increase the opacity of the image
+            // Function to gradually increase the opacity of the image to a maximum of 0.5
             function fadeInImage() {
-                opacity = 0;
-                fadeInterval = setInterval(function() {
-                    if (opacity < 0.4) {
+                let opacity = 0;
+                let fadeInterval = setInterval(function() {
+                    if (opacity < 0.5) {
                         opacity += 0.01;
-                        aladin.getOverlayImageLayer(0).setAlpha(opacity);
+                        overlay.setAlpha(opacity);
                     } else {
                         clearInterval(fadeInterval);
                     }
@@ -73,7 +75,7 @@
             function startZoom(targetCoords) {
                 clearInterval(zoomInterval);  // Clear any previous zoom intervals
                 aladin.gotoObject(targetCoords);  // Go to the new coordinates
-                aladin.setFov(360);  // Reset the FoV to the initial large value
+                aladin.setFov(360);  // Reset the FoV to the initial large value 
 
                 zoomInterval = setInterval(function() {
                     let currentFov = aladin.getFov()[0];  // Get the current FoV
@@ -85,11 +87,15 @@
                         // Stop the zooming animation
                         clearInterval(zoomInterval);
 
-                        // Optionally, center precisely on the target object
+                        // Display the image and start the fade-in effect
+                        aladin.displayJPG('https://cdn.esahubble.org/archives/images/screen/heic1007c.jpg', null, function(ra, dec, fov) {
+                            // Set up the overlay and initialize opacity to 0
+                            overlay = aladin.getOverlayImageLayer();
+                            overlay.setAlpha(0);
+                            fadeInImage();
+                            return true;
+                        });
                         aladin.gotoObject(targetCoords);
-
-                        aladin.displayJPG('https://cdn.esahubble.org/archives/images/screen/heic1007e.jpg', null, callback);
-                        fadeInImage();
                     }
                 }, intervalTime);
             }
