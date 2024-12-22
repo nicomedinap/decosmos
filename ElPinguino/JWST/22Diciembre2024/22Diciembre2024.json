@@ -1,0 +1,33 @@
+{
+  "title": "La interacción de galaxias ARP 142, o 'El Pingüino' ",
+  "mainImage": "https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/ARP143/ARP142.jpg",
+  "description": "La imagen muestra al sistema de galaxias en interacción llamado ARP 142. La galaxia del Pingüino es una galaxia espiral (NGC 2936), la cual está interactuando gravitatoriamente con una galaxia elíptica (NGC 2937). Esta interacción la deformación en el disco de la galaxia espiral que toma forma del pingüino. Se espera que está interacción continúe hasta que puedan formar una sola galaxia.",
+  "relatedContent": [
+    {
+      "id": "related1",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/ARP142/JWST/22Diciembre2024/Descripcion.html"
+    },
+    {
+      "id": "related2",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/ARP142/JWST/22Diciembre2024/ZoomARP107.html",
+      "dataSrc": "https://nicomedinap.github.io/decosmos/ARP142/JWST/22Diciembre2024/ZoomARP107.html"
+    },
+    {
+      "id": "related3",
+      "iframeSrc": "https://nicomedinap.github.io/decosmos/ARP142/JWST/22Diciembre2024/MostrarImagenesARP107.html"
+    },
+    {
+      "id": "related4",
+      "content": {
+      "title": "Propiedades Físicas de ARP 142",
+      "items": [
+          "Tipo de objeto astronómico: Par de galaxias en interacción, compuesto por una galaxia espiral deformada y una galaxia elíptica compacta.",
+          "Dimensiones: La galaxia espiral deformada tiene un diámetro de aproximadamente 120,000 años luz, mientras que la galaxia elíptica es más pequeña, con un diámetro de unos 50,000 años luz.",
+          "Composición: La interacción ha distorsionado la estructura de la galaxia espiral, formando colas de marea y acumulaciones de gas y polvo. Ambas galaxias contienen materia oscura y regiones activas de formación estelar provocadas por la interacción gravitacional.",
+          "Ubicación: En la constelación de Hydra, a una distancia aproximada de 326 millones de años luz de la Tierra.",
+          "Observación: Este sistema ha sido estudiado en longitudes de onda ópticas e infrarrojas para mapear las regiones de formación estelar, así como en el espectro de radio para rastrear el gas de hidrógeno neutral (HI) desplazado durante la interacción."
+        ]
+      }
+    }
+  ]
+}
