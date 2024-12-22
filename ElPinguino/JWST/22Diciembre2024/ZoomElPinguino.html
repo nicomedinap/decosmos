@@ -41,7 +41,7 @@
             let aladin = A.aladin('#aladin-lite-div', {
                 survey: "P/DSS2/color",
                 fov: 360,  // Start with a large FoV (60 degrees)
-                target: "163.061996 30.05800"  // Initial coordinates to center on
+                target: "144.4358300000 +02.7541700000"  // Initial coordinates to center on
             });
 
             let finalFov = 0.1;  // Final FoV after zooming in
@@ -72,7 +72,7 @@
 
             // Automatic zoom after 5 seconds
             setTimeout(function() {
-                let targetCoords = "163.061996 30.05800";  // Coordinates
+                let targetCoords = "144.4358300000 +02.7541700000";  // Coordinates
                 startZoom(targetCoords);
             }, 5000);
 
