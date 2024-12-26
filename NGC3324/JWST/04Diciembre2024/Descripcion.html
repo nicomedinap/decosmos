@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -8,41 +7,40 @@
 <body>
 
     <div class="container">
-        <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/3.jpg" alt="Imagen Principal">
+        <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC3324/2.jpg" alt="Imagen Principal">
         <canvas id="polygonOverlay"></canvas>
         <div class="description" id="description"></div>
         <div class="category-toggle">
-            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Regiones de formación estelar masiva (rojo).</label>
-        <!--<label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Posible formación estelar (azul).</label> -->
-            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Proto-estrellas (estrellas en formacion) (verde).</label>
-            <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Estrellas jóvenes que calientan el gas (blanco).</label>
-
+            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Regiones de formación estelar masiva (rojo)</label>
+            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Regiones de posible formación estelar (azul)</label>
+            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Estrellas jóvenes que calientan el gas (verde)</label>
         </div>
     </div>
 
     <script>
         const rectangles = {
             category1: [
-                { x: 1616, y: 2300, width: 800, height: 1350 },
-                { x: 1307, y: 5558, width: 1000, height: 1250 },
+                { x: 446, y: 1730, width: 250, height: 300 },
+                { x: 506, y: 754, width: 200, height: 150 },
             ],
-  //          category2: [],
+            category2: [
+                { x: 670, y: 1303, width: 90, height: 100 },
+                { x: 443, y: 1132, width: 100, height: 250 },
+                { x: 772, y: 1277, width: 70, height: 70},
+                { x: 445, y: 269, width: 120, height: 150},
+                ],
             category3: [
-                 { x: 2200, y: 4300, width: 400, height: 350 },
-                 { x: 2002, y: 2530, width: 200, height: 250 }
+                { x: 246, y: 197, width: 140, height: 160 },
+                { x: 335, y: 436, width: 140, height: 160 },
             ]
         };
 
- //       const spiralArms = {
- //           category2: []
-//        };
+        const spiralArms = {
+            category2: []
+        };
 
         const circles = {
-            category4: [
-            { x: 1050, y: 925, radius: 350 },
-            { x: 1330, y: 1725, radius: 350 },
-
-            ]
+            category4: []
         };
 
         const img = document.getElementById('mainImage');
