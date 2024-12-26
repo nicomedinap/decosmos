@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,44 +6,50 @@
 </head>
 <body>
 
-<body>
-
     <div class="container">
         <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/ARP107/012.jpg" alt="Imagen Principal">
         <canvas id="polygonOverlay"></canvas>
         <div class="description" id="description"></div>
         <div class="category-toggle">
-            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Centro galáctico dénsamente poblado de estrellas (rojo).</label>
-            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Brazos espirales principales (azul).</label>
-            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Región de formación estelar masiva (verde).</label>
-            <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Galaxias de fondo (blanco).</label>
+            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Galaxia espiral PGC 32620 (rojo)</label>
+            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Brazo espiral con formación estelar activa (azul)</label>
+            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Galaxia elíptica PGC 32628 (verde)
+            <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Algunas de las tantas galaxias de fondo (blanco)
+            </label>
         </div>
     </div>
 
     <script>
         const rectangles = {
             category1: [
-                { x: 850, y: 1900, width: 500, height: 600 },  // Ejemplo de valores
+                { x: 403, y: 1327, width: 650, height: 550 },
             ],
             category2: [],
             category3: [
-                { x: 1650, y: 2100, width: 200, height: 250},
-                { x: 1200, y: 3040, width: 280, height: 350},
-                { x: 283, y: 1513, width: 200, height: 450 },
+                { x: 325, y: 728, width: 450, height: 550  },
             ]
         };
 
         const spiralArms = {
             category2: [
-                "M 1006 893 C 113 1966, 600 3118, 1323 2499",
-                "M 732 2079 C 1890 846, 2145 3076, 992 3530"
+            "M 643 1451 C 244 1282, 497 2321, 981 1507",
             ]
         };
 
         const circles = {
             category4: [
-                { x: 789, y: 2390, radius: 110 },
-                { x: 1923, y: 2221, radius: 80},
+            {x: 287, y: 1668, radius: 40},
+            {x: 331, y: 1418, radius: 40},
+            {x: 990, y: 934, radius: 40},
+            {x: 580, y: 1921, radius: 40},
+            {x: 415, y: 347, radius: 40},
+            {x: 144, y: 1202, radius: 40},
+            {x: 369, y: 120 ,radius: 40},
+            {x: 603, y: 1140 ,radius: 40},
+            {x: 518, y: 815 ,radius: 40},
+            {x: 675, y: 2124 ,radius: 40},
+            {x: 1100, y: 230, radius: 40},
+            {x: 331, y: 1418 ,radius: 40},
             ]
         };
 
