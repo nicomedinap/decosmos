@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://nicomedinap.github.io/decosmos/PublicCSS/Descripcion.css">
+</head>
+<body>
+
+    <div class="container">
+        <img id="mainImage" src="https://raw.githubusercontent.com/nicomedinap/nicomedinap.github.io/master/Galeria/JWST/NGC2070/3.jpg" alt="Imagen Principal">
+         <canvas id="polygonOverlay"></canvas>
+        <div class="description" id="description"></div>
+        <div class="category-toggle">
+            <label id="labelCategory1" class="category1"><input type="checkbox" id="toggleCategory1" class="category1" checked> Estrellas masivas que ionizan el medio (rojo)</label>
+            <label id="labelCategory2" class="category2"><input type="checkbox" id="toggleCategory2" class="category2" checked> Estrellas jóvenes (azul).</label>
+            <label id="labelCategory3" class="category3"><input type="checkbox" id="toggleCategory3" class="category3" checked> Estrellas con estructuras de difracción del JWST (verde)</label>
+            <label id="labelCategory4" class="category4"><input type="checkbox" id="toggleCategory4" class="category4" checked> Cúmulo de estrellas NGC 2070 (blanco)</label>
+            <label id="labelCategory5" class="category5"><input type="checkbox" id="toggleCategory5" class="category5" checked> Supercúmulo estelar R136 (amarillo)</label>
+        </div>
+    </div>
+
+    <script>
+        const rectangles = {
+            category1: [
+                { x: 302, y: 1090, width: 100, height: 100  },
+                { x: 171, y: 1137, width: 100, height: 100  },
+            ],
+            category2: [
+                { x: 653, y: 727, width: 50, height: 50 },
+                { x: 365, y: 1384, width: 50, height: 50 },
+                { x: 255, y: 1350, width: 50, height: 50 },
+                { x: 125, y: 1348, width: 50, height: 50 },
+                { x: 647, y: 645, width: 50, height: 50 },
+                { x: 653, y: 727, width: 50, height: 50 },
+                { x: 895, y: 1020, width: 50, height: 50 },
+                { x: 335, y: 1242, width: 50, height: 50 },
+            ],
+            category3: [
+                {x: 562, y: 1065, width: 50, height: 50 },
+                {x: 548, y: 47, width: 50, height: 50 },
+                {x: 65, y: 1010, width: 50, height: 50 },
+                {x: 0, y: 359, width: 50, height: 90 },
+            ],
+
+            category5: [
+                { x: 660, y: 880, width: 60, height: 60  },
+            ],
+        };
+
+        const spiralArms = {
+            category2: []
+        };
+
+        const circles = {
+            category4: [
+            { x: 685, y: 909, radius: 120 }
+            ]
+        };
+
+        const img = document.getElementById('mainImage');
+        const canvas = document.getElementById('polygonOverlay');
+        const ctx = canvas.getContext('2d');
+
+        img.onload = function() {
+            resizeCanvas();
+            drawPolygonsAndCurves();
+        };
+
+        function resizeCanvas() {
+            canvas.width = img.clientWidth;
+            canvas.height = img.clientHeight;
+            drawPolygonsAndCurves();
+        }
+
+        function drawPolygonsAndCurves() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const scaleX = canvas.width / img.naturalWidth;
+            const scaleY = canvas.height / img.naturalHeight;
+
+            Object.keys(rectangles).forEach(category => {
+                if (document.getElementById(`toggle${category.charAt(0).toUpperCase() + category.slice(1)}`).checked) {
+                    rectangles[category].forEach(rect => {
+                        const scaledRect = {
+                            x: rect.x * scaleX,
+                            y: rect.y * scaleY,
+                            width: rect.width * scaleX,
+                            height: rect.height * scaleY
+                        };
+                        ctx.strokeStyle = getColorForCategory(category);
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(scaledRect.x, scaledRect.y, scaledRect.width, scaledRect.height);
+                    });
+                    // los brazos se escalan dentro de esta categoria para que no cambien su tamano en funcion del la dimension de la pantalla
+                    if (category === 'category2') {
+                        spiralArms[category].forEach(pathData => {
+                            const scaledPathData = pathData.replace(/(\d+)/g, (match) => {
+                                return (match * scaleX).toFixed(2); // Escalar según el ancho
+                            });
+                            const path = new Path2D(scaledPathData);
+                            ctx.strokeStyle = getColorForCategory(category);
+                            ctx.lineWidth = 2;
+                            ctx.stroke(path);
+                        });
+                    }
+                }
+            });
+
+            // Dibujar los círculos para la nueva categoría
+            if (document.getElementById('toggleCategory4').checked) {
+                circles.category4.forEach(circle => {
+                    const scaledCircle = {
+                        x: circle.x * scaleX,
+                        y: circle.y * scaleY,
+                        radius: circle.radius * scaleX
+                    };
+                    ctx.strokeStyle = 'white';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.arc(scaledCircle.x, scaledCircle.y, scaledCircle.radius, 0, 2 * Math.PI);
+                    ctx.stroke();
+                });
+            }
+        }
+
+        function getColorForCategory(category) {
+            switch (category) {
+                case 'category1': return 'red';
+                case 'category2': return 'blue';
+                case 'category3': return 'green';
+                case 'category5': return 'yellow';
+                default: return 'black';
+            }
+        }
+
+        document.querySelectorAll('.category-toggle input').forEach(input => {
+            input.addEventListener('change', () => {
+                drawPolygonsAndCurves();
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+        });
+    </script>
+
+</body>
+</html>
